@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14-Day Ultimate Kyrgyzstan Tour</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 70vh;
+      min-height: 500px;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&h=900&fit=crop');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+    }
+
+    .hero-price {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: #FDB913;
+      color: #333;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #ffca3a;
+      transform: translateY(-2px);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #1a1a1a;
+    }
+
+    /* Two Column Layout */
+    .two-columns {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .main-content {
+      background: white;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 20px;
+    }
+
+    .booking-card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .booking-card h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .price-display {
+      font-size: 36px;
+      font-weight: 700;
+      color: #FDB913;
+      margin-bottom: 10px;
+    }
+
+    .price-note {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    /* Tour Overview */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .overview-item {
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .overview-item i {
+      font-size: 36px;
+      color: #FDB913;
+      margin-bottom: 10px;
+    }
+
+    .overview-item h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .overview-item p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* Itinerary */
+    .itinerary-days {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .day-button {
+      padding: 16px 20px;
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .day-button:hover {
+      border-color: #FDB913;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(253, 185, 19, 0.2);
+    }
+
+    .day-button.active {
+      background: #FDB913;
+      border-color: #FDB913;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(253, 185, 19, 0.3);
+    }
+
+    .day-number {
+      font-size: 24px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .day-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .itinerary-content {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .itinerary-content h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .itinerary-content h3 i {
+      color: #FDB913;
+      font-size: 32px;
+    }
+
+    .itinerary-description {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .itinerary-highlights {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    .itinerary-highlights h4 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .itinerary-highlights ul {
+      list-style: none;
+    }
+
+    .itinerary-highlights li {
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #555;
+    }
+
+    .itinerary-highlights li i {
+      color: #FDB913;
+      font-size: 18px;
+    }
+
+    .itinerary-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .itinerary-gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .itinerary-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .day-stats {
+      display: flex;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .stat-item i {
+      color: #FDB913;
+      font-size: 20px;
+    }
+
+    /* Fullscreen Day Viewer */
+    .day-viewer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #000;
+      z-index: 9999;
+      display: none;
+      overflow-y: auto;
+    }
+
+    .day-viewer.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .day-viewer-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.6);
+    }
+
+    .day-viewer-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 40px 60px;
+      min-height: 100vh;
+    }
+
+    .viewer-header {
+      margin-bottom: 40px;
+    }
+
+    .viewer-day-badge {
+      display: inline-block;
+      background: #FDB913;
+      color: #000;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .viewer-title {
+      font-size: 48px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 15px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+
+    .viewer-location {
+      font-size: 20px;
+      color: rgba(255,255,255,0.9);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .viewer-stats {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .viewer-stat {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding: 15px 25px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .viewer-stat i {
+      font-size: 24px;
+      color: #FDB913;
+    }
+
+    .viewer-description {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      margin-bottom: 40px;
+    }
+
+    .viewer-description h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .viewer-description h3::before {
+      content: '⏰';
+      font-size: 28px;
+    }
+
+    .viewer-description ul li {
+      padding: 12px;
+      border-left: 3px solid #FDB913;
+      background: #f8f9fa;
+      margin-bottom: 8px;
+      border-radius: 0 8px 8px 0;
+      transition: all 0.3s;
+    }
+
+    .viewer-description ul li:hover {
+      background: #fff;
+      border-left-width: 5px;
+      transform: translateX(5px);
+    }
+
+    .viewer-description ul li strong {
+      color: #FDB913;
+      font-weight: 700;
+      margin-right: 8px;
+      font-size: 15px;
+    }
+
+    .viewer-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .viewer-highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: #f8f9fa;
+      border-radius: 10px;
+    }
+
+    .viewer-highlight-item i {
+      color: #FDB913;
+      font-size: 20px;
+    }
+
+    .viewer-gallery {
+      margin-bottom: 40px;
+    }
+
+    .viewer-gallery h3 {
+      font-size: 28px;
+      color: white;
+      margin-bottom: 25px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Navigation Controls */
+    .viewer-nav {
+      position: fixed;
+      top: 30px;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .nav-btn {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: #FDB913;
+      transform: translateY(-2px);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .close-btn {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      transition: all 0.3s;
+    }
+
+    .close-btn:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: #E74C3C;
+      transform: rotate(90deg);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .viewer-title {
+        font-size: 32px;
+      }
+
+      .day-viewer-content {
+        padding: 80px 20px 40px;
+      }
+
+      .viewer-nav {
+        padding: 0 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .nav-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+      }
+
+      .viewer-description {
+        padding: 25px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Full view style */
+    .full-itinerary-item {
+      margin-bottom: 25px;
+      padding: 30px;
+      background: white;
+      border-radius: 16px;
+      border-left: 4px solid #FDB913;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .full-itinerary-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .full-itinerary-item h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .full-itinerary-item h3 .day-badge {
+      background: #FDB913;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .full-itinerary-item p {
+      color: #555;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    /* Includes/Excludes */
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .includes-section {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    .includes-section h3 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .includes-section ul {
+      list-style: none;
+    }
+
+    .includes-section li {
+      padding: 10px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .includes-section li i {
+      color: #4CAF50;
+      margin-top: 2px;
+    }
+
+    .excludes-section li i {
+      color: #E74C3C;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px;
+      background: #f8f9fa;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .faq-question:hover {
+      background: #e9ecef;
+    }
+
+    .faq-answer {
+      padding: 20px;
+      display: none;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero-meta {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .two-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .includes-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>14-Day Ultimate Kyrgyzstan Tour</h1>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <i class="ri-time-line"></i>
+          <span>14 Days / 13 Nights</span>
+        </div>
+        <div class="meta-item">
+          <i class="ri-map-pin-line"></i>
+          <span>Bishkek - Karakol</span>
+        </div>
+        <div class="meta-item">
+          <i class="ri-group-line"></i>
+          <span>2-12 People</span>
+        </div>
+      </div>
+      <div class="hero-price">From $1,890 per person</div>
+      <a href="#booking" class="btn">Book This Tour</a>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="two-columns">
+      <div class="main-content">
+        <!-- Overview -->
+        <section class="section">
+          <h2 class="section-title">Tour Overview</h2>
+          <p style="font-size: 18px; color: #555; margin-bottom: 30px;">
+            Experience the ultimate adventure through Kyrgyzstan's stunning landscapes, from alpine lakes to nomadic valleys. This comprehensive tour takes you through the country's most iconic destinations, offering authentic cultural experiences and breathtaking natural beauty.
+          </p>
+
+          <div class="overview-grid">
+            <div class="overview-item">
+              <i class="ri-calendar-line"></i>
+              <h4>Duration</h4>
+              <p>14 Days</p>
+            </div>
+            <div class="overview-item">
+              <i class="ri-map-2-line"></i>
+              <h4>Distance</h4>
+              <p>~1,500 km</p>
+            </div>
+            <div class="overview-item">
+              <i class="ri-star-line"></i>
+              <h4>Difficulty</h4>
+              <p>Moderate</p>
+            </div>
+            <div class="overview-item">
+              <i class="ri-calendar-check-line"></i>
+              <h4>Best Season</h4>
+              <p>May - October</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Itinerary -->
+        <section class="section">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 20px;">
+            <h2 class="section-title" style="margin-bottom: 0;">Day by Day Itinerary</h2>
+            <button id="viewToggle" class="btn" style="padding: 12px 24px; font-size: 14px;">
+              <i class="ri-list-check"></i> Show Full Itinerary
+            </button>
+          </div>
+          
+          <div id="interactive-view">
+            <div class="itinerary-days">
+              <button class="day-button active" data-day="1">
+                <span class="day-number">1</span>
+                <span class="day-label">Day</span>
+              </button>
+              <button class="day-button" data-day="2">
+                <span class="day-number">2</span>
+                <span class="day-label">Day</span>
+              </button>
+              <button class="day-button" data-day="3">
+                <span class="day-number">3</span>
+                <span class="day-label">Day</span>
+              </button>
+              <button class="day-button" data-day="4">
+                <span class="day-number">4</span>
+                <span class="day-label">Day</span>
+              </button>
+              <button class="day-button" data-day="5">
+                <span class="day-number">5</span>
+                <span class="day-label">Day</span>
+              </button>
+              <button class="day-button" data-day="6">
+                <span class="day-number">6</span>
+                <span class="day-label">Day</span>
+              </button>
+              <button class="day-button" data-day="7">
+                <span class="day-number">7</span>
+                <span class="day-label">Day</span>
+              </button>
+              <button class="day-button" data-day="8">
+                <span class="day-number">8</span>
+                <span class="day-label">Day</span>
+              </button>
+              <button class="day-button" data-day="9">
+                <span class="day-number">9</span>
+                <span class="day-label">Day</span>
+              </button>
+              <button class="day-button" data-day="10">
+                <span class="day-number">10</span>
+                <span class="day-label">Day</span>
+              </button>
+              <button class="day-button" data-day="11">
+                <span class="day-number">11</span>
+                <span class="day-label">Day</span>
+              </button>
+              <button class="day-button" data-day="12">
+                <span class="day-number">12</span>
+                <span class="day-label">Day</span>
+              </button>
+              <button class="day-button" data-day="13">
+                <span class="day-number">13</span>
+                <span class="day-label">Day</span>
+              </button>
+              <button class="day-button" data-day="14">
+                <span class="day-number">14</span>
+                <span class="day-label">Day</span>
+              </button>
+            </div>
+
+            <div id="itinerary-display"></div>
+          </div>
+
+          <div id="full-view" style="display: none;"></div>
+        </section>
+
+        <!-- What's Included -->
+        <section class="section">
+          <h2 class="section-title">What's Included & Excluded</h2>
+          <div class="includes-grid">
+            <div class="includes-section">
+              <h3><i class="ri-check-line" style="color: #4CAF50;"></i> Included</h3>
+              <ul>
+                <li><i class="ri-check-line"></i><span>All accommodation (hotels & guesthouses)</span></li>
+                <li><i class="ri-check-line"></i><span>All meals (breakfast, lunch, dinner)</span></li>
+                <li><i class="ri-check-line"></i><span>Professional English-speaking guide</span></li>
+                <li><i class="ri-check-line"></i><span>All transportation in comfortable vehicle</span></li>
+                <li><i class="ri-check-line"></i><span>Domestic flights (Bishkek-Osh-Bishkek)</span></li>
+                <li><i class="ri-check-line"></i><span>All entrance fees to parks & museums</span></li>
+                <li><i class="ri-check-line"></i><span>Horse riding experiences</span></li>
+                <li><i class="ri-check-line"></i><span>Eagle hunting demonstration</span></li>
+                <li><i class="ri-check-line"></i><span>Airport transfers</span></li>
+              </ul>
+            </div>
+
+            <div class="includes-section excludes-section">
+              <h3><i class="ri-close-line" style="color: #E74C3C;"></i> Not Included</h3>
+              <ul>
+                <li><i class="ri-close-line"></i><span>International flights</span></li>
+                <li><i class="ri-close-line"></i><span>Visa fees (if applicable)</span></li>
+                <li><i class="ri-close-line"></i><span>Travel insurance</span></li>
+                <li><i class="ri-close-line"></i><span>Personal expenses</span></li>
+                <li><i class="ri-close-line"></i><span>Tips for guide and driver</span></li>
+                <li><i class="ri-close-line"></i><span>Alcoholic beverages</span></li>
+                <li><i class="ri-close-line"></i><span>Optional activities</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="section">
+          <h2 class="section-title">Photo Gallery</h2>
+          <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="Kyrgyzstan">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" alt="Mountains">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop" alt="Landscape">
+            <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=300&fit=crop" alt="Nature">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" alt="Adventure">
+            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="Travel">
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What is the best time to visit Kyrgyzstan?</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+              The best time to visit Kyrgyzstan is from May to October when the weather is warm and mountain passes are accessible. July and August are peak season with the best weather, while May-June and September offer fewer crowds and beautiful landscapes.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Do I need a visa for Kyrgyzstan?</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+              Citizens of most countries can enter Kyrgyzstan visa-free for up to 60 days. Please check with your local embassy for specific requirements based on your nationality.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What is the accommodation like?</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+              Accommodation varies from comfortable hotels in cities to traditional guesthouses in villages and authentic yurt stays at Son-Kul Lake. All accommodations are clean and include basic amenities.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What fitness level is required?</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+              This tour is suitable for anyone with moderate fitness. While some hikes are included, they are optional and can be adjusted to your ability. The most challenging part is the altitude at Son-Kul Lake (3,000m).
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Can dietary requirements be accommodated?</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+              Yes! Please inform us of any dietary restrictions when booking. We can accommodate vegetarian, vegan, halal, and other dietary needs.
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="booking-card" id="booking">
+          <h3>Book This Tour</h3>
+          <div class="price-display">$1,890</div>
+          <div class="price-note">per person (group of 4+)</div>
+
+          <form>
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" placeholder="john@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+1 234 567 8900">
+            </div>
+
+            <div class="form-group">
+              <label>Number of People *</label>
+              <select required>
+                <option value="">Select...</option>
+                <option value="1">1 Person</option>
+                <option value="2">2 People</option>
+                <option value="3">3 People</option>
+                <option value="4">4 People</option>
+                <option value="5">5+ People</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Preferred Date</label>
+              <input type="date">
+            </div>
+
+            <div class="form-group">
+              <label>Additional Message</label>
+              <textarea style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; resize: vertical; min-height: 80px;" placeholder="Any special requests or questions..."></textarea>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%;">Request Booking</button>
+          </form>
+
+          <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center;">
+            <p style="font-size: 14px; color: #666; margin-bottom: 10px;">Need help?</p>
+            <a href="tel:+996555123456" style="color: #FDB913; text-decoration: none; font-weight: 600;">
+              <i class="ri-phone-line"></i> +996 555 123 456
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Fullscreen Day Viewer -->
+  <div class="day-viewer" id="dayViewer">
+    <div class="day-viewer-bg" id="viewerBg"></div>
+    
+    <div class="viewer-nav">
+      <button class="nav-btn" id="prevDayBtn">
+        <i class="ri-arrow-left-line"></i>
+        <span>Previous Day</span>
+      </button>
+      
+      <button class="close-btn" id="closeViewerBtn">
+        <i class="ri-close-line"></i>
+      </button>
+      
+      <button class="nav-btn" id="nextDayBtn">
+        <span>Next Day</span>
+        <i class="ri-arrow-right-line"></i>
+      </button>
+    </div>
+
+    <div class="day-viewer-content" id="viewerContent"></div>
+  </div>
+
+  <script>
+    // Itinerary Data
+    const itineraryData = {
+      1: {
+        title: "Arrival in Bishkek",
+        location: "Bishkek",
+        description: `
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 15px;"><strong>09:00</strong> - Meet and greet at Manas International Airport</li>
+            <li style="margin-bottom: 15px;"><strong>10:00</strong> - Transfer to hotel in Bishkek (check-in)</li>
+            <li style="margin-bottom: 15px;"><strong>12:00</strong> - Lunch at local restaurant</li>
+            <li style="margin-bottom: 15px;"><strong>14:00</strong> - City tour: Visit Ala-Too Square and State History Museum</li>
+            <li style="margin-bottom: 15px;"><strong>16:00</strong> - Explore Osh Bazaar, experience local market culture</li>
+            <li style="margin-bottom: 15px;"><strong>18:30</strong> - Welcome dinner with traditional Kyrgyz cuisine</li>
+            <li style="margin-bottom: 15px;"><strong>21:00</strong> - Return to hotel, overnight in Bishkek</li>
+          </ul>
+        `,
+        highlights: [
+          "Airport pickup and transfer",
+          "City tour of Bishkek",
+          "Visit Ala-Too Square",
+          "Explore Osh Bazaar",
+          "Welcome dinner with traditional cuisine"
+        ],
+        stats: {
+          distance: "25 km",
+          duration: "Half day",
+          accommodation: "Hotel"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop"
+        ]
+      },
+      2: {
+        title: "Bishkek - Ala Archa National Park",
+        location: "Ala Archa",
+        description: `
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 15px;"><strong>08:00</strong> - Breakfast at hotel</li>
+            <li style="margin-bottom: 15px;"><strong>09:00</strong> - Depart for Ala Archa National Park (45 km, 1 hour drive)</li>
+            <li style="margin-bottom: 15px;"><strong>10:00</strong> - Arrive at park, start hiking in the alpine gorge</li>
+            <li style="margin-bottom: 15px;"><strong>13:00</strong> - Picnic lunch surrounded by mountain views</li>
+            <li style="margin-bottom: 15px;"><strong>14:30</strong> - Continue hiking to glacier viewpoint</li>
+            <li style="margin-bottom: 15px;"><strong>16:00</strong> - Return to parking area</li>
+            <li style="margin-bottom: 15px;"><strong>17:00</strong> - Drive back to Bishkek</li>
+            <li style="margin-bottom: 15px;"><strong>19:00</strong> - Dinner at local restaurant, overnight in Bishkek</li>
+          </ul>
+        `,
+        highlights: [
+          "Drive to Ala Archa National Park",
+          "Hiking in alpine gorge",
+          "Glacier and mountain views",
+          "Picnic lunch in nature",
+          "Return to Bishkek"
+        ],
+        stats: {
+          distance: "90 km",
+          duration: "Full day",
+          accommodation: "Hotel"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=300&fit=crop"
+        ]
+      },
+      3: {
+        title: "Bishkek - Burana Tower - Issyk-Kul",
+        location: "Issyk-Kul Lake",
+        description: `
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 15px;"><strong>08:00</strong> - Breakfast and hotel check-out</li>
+            <li style="margin-bottom: 15px;"><strong>09:00</strong> - Depart for Burana Tower (80 km, 1.5 hours)</li>
+            <li style="margin-bottom: 15px;"><strong>10:30</strong> - Visit Burana Tower (11th century minaret) and open-air museum</li>
+            <li style="margin-bottom: 15px;"><strong>12:00</strong> - Continue drive to Issyk-Kul Lake (170 km, 2.5 hours)</li>
+            <li style="margin-bottom: 15px;"><strong>13:00</strong> - Lunch stop along the way</li>
+            <li style="margin-bottom: 15px;"><strong>15:00</strong> - Arrive at Cholpon-Ata, check-in to guesthouse</li>
+            <li style="margin-bottom: 15px;"><strong>16:00</strong> - Beach time and swimming in the lake</li>
+            <li style="margin-bottom: 15px;"><strong>19:00</strong> - Dinner at guesthouse, enjoy sunset views</li>
+            <li style="margin-bottom: 15px;"><strong>21:00</strong> - Overnight in Cholpon-Ata</li>
+          </ul>
+        `,
+        highlights: [
+          "Visit Burana Tower (11th century)",
+          "Ancient Turkic stone sculptures",
+          "Drive to Issyk-Kul Lake",
+          "Beach time and swimming",
+          "Sunset at the lake"
+        ],
+        stats: {
+          distance: "250 km",
+          duration: "Full day",
+          accommodation: "Guesthouse"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop"
+        ]
+      },
+      4: {
+        title: "Cholpon-Ata - Karakol",
+        location: "Karakol",
+        description: "Visit the famous Petroglyphs of Cholpon-Ata dating back 3,000 years. Drive along the scenic lake shore to Karakol. Visit the Dungan Mosque and Russian Orthodox Cathedral. Explore the local animal market (if Sunday). Overnight in Karakol.",
+        highlights: [
+          "Ancient petroglyphs (3,000 years old)",
+          "Scenic drive along Issyk-Kul",
+          "Visit Dungan Mosque",
+          "Russian Orthodox Cathedral",
+          "Local animal market"
+        ],
+        stats: {
+          distance: "150 km",
+          duration: "Full day",
+          accommodation: "Hotel"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop"
+        ]
+      },
+      5: {
+        title: "Karakol - Altyn Arashan Valley",
+        location: "Altyn Arashan",
+        description: "Drive to Ak-Suu village and hike or horseback ride to Altyn Arashan valley. Enjoy hot springs with mountain views. Overnight in guesthouse surrounded by stunning peaks. This is a highlight of the tour with incredible alpine scenery.",
+        highlights: [
+          "Hike or horseback to valley",
+          "Natural hot springs",
+          "Stunning alpine scenery",
+          "Mountain peak views",
+          "Traditional guesthouse stay"
+        ],
+        stats: {
+          distance: "30 km + 12 km hike",
+          duration: "Full day",
+          accommodation: "Guesthouse"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
+        ]
+      },
+      6: {
+        title: "Altyn Arashan - Jeti-Oguz - Bokonbaevo",
+        location: "Bokonbaevo",
+        description: "Return to Karakol and drive along the southern shore to Jeti-Oguz (Seven Bulls) red rock formations. Visit the Broken Heart rock. Continue to Bokonbaevo village. Eagle hunting demonstration with local hunters. Overnight in guesthouse.",
+        highlights: [
+          "Jeti-Oguz red rocks formation",
+          "Broken Heart rock",
+          "Eagle hunting demonstration",
+          "Meet local hunters",
+          "Southern shore views"
+        ],
+        stats: {
+          distance: "180 km",
+          duration: "Full day",
+          accommodation: "Guesthouse"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
+        ]
+      },
+      7: {
+        title: "Bokonbaevo - Son-Kul Lake",
+        location: "Son-Kul Lake",
+        description: "Drive through mountain passes to Son-Kul Lake at 3,016m altitude. Experience nomadic life in a traditional yurt camp. Horse riding on the alpine pastures. Sunset views over the lake. Traditional dinner. Overnight in yurt.",
+        highlights: [
+          "Mountain pass crossing",
+          "Arrive at Son-Kul (3,016m)",
+          "Stay in traditional yurt",
+          "Horse riding experience",
+          "Nomadic lifestyle immersion"
+        ],
+        stats: {
+          distance: "200 km",
+          duration: "Full day",
+          accommodation: "Yurt camp"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
+        ]
+      },
+      8: {
+        title: "Full Day at Son-Kul Lake",
+        location: "Son-Kul Lake",
+        description: "Full day exploring Son-Kul. Morning horse riding with local shepherds. Learn about nomadic traditions and daily life. Optional hiking around the lake. Experience authentic nomadic hospitality. Overnight in yurt.",
+        highlights: [
+          "Horse riding with shepherds",
+          "Learn nomadic traditions",
+          "Hiking around the lake",
+          "Authentic cultural experience",
+          "Photography opportunities"
+        ],
+        stats: {
+          distance: "0 km",
+          duration: "Full day",
+          accommodation: "Yurt camp"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop"
+        ]
+      },
+      9: {
+        title: "Son-Kul - Kochkor - Bishkek",
+        location: "Bishkek",
+        description: "Return journey to Bishkek via Kochkor village. Visit a felt workshop to see traditional carpet making. Try your hand at creating felt souvenirs. Arrive in Bishkek evening. Overnight in hotel.",
+        highlights: [
+          "Visit Kochkor village",
+          "Traditional felt workshop",
+          "Carpet making demonstration",
+          "Create your own souvenir",
+          "Return to Bishkek"
+        ],
+        stats: {
+          distance: "280 km",
+          duration: "Full day",
+          accommodation: "Hotel"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop"
+        ]
+      },
+      10: {
+        title: "Bishkek - Osh (Flight)",
+        location: "Osh",
+        description: "Morning flight to Osh in southern Kyrgyzstan. City tour including Sulayman Mountain (UNESCO site), the famous Osh Bazaar, and Silk Road Museum. Explore the ancient city streets. Overnight in Osh.",
+        highlights: [
+          "Domestic flight to Osh",
+          "Sulayman Mountain (UNESCO)",
+          "Famous Osh Bazaar",
+          "Silk Road Museum",
+          "Ancient city exploration"
+        ],
+        stats: {
+          distance: "Flight 1h",
+          duration: "Full day",
+          accommodation: "Hotel"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
+        ]
+      },
+      11: {
+        title: "Osh - Arslanbob Walnut Forest",
+        location: "Arslanbob",
+        description: "Drive to Arslanbob, home to the world's largest natural walnut forest. Hike to waterfalls through ancient trees. Visit local family and learn about walnut harvesting traditions. Stunning mountain views. Overnight in guesthouse.",
+        highlights: [
+          "World's largest walnut forest",
+          "Hike to waterfalls",
+          "Ancient tree forest",
+          "Local family visit",
+          "Walnut harvesting traditions"
+        ],
+        stats: {
+          distance: "150 km",
+          duration: "Full day",
+          accommodation: "Guesthouse"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop"
+        ]
+      },
+      12: {
+        title: "Arslanbob - Osh",
+        location: "Osh",
+        description: "Morning hike to the Big Waterfall (80m high). Return to Osh with stops at scenic viewpoints. Evening free to explore Osh city further or relax. Overnight in Osh.",
+        highlights: [
+          "Big Waterfall (80m)",
+          "Scenic mountain views",
+          "Photo opportunities",
+          "Return to Osh",
+          "Free evening"
+        ],
+        stats: {
+          distance: "150 km",
+          duration: "Full day",
+          accommodation: "Hotel"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
+        ]
+      },
+      13: {
+        title: "Osh - Bishkek (Flight)",
+        location: "Bishkek",
+        description: "Fly back to Bishkek. Free afternoon for shopping at Dordoy Bazaar or visiting craftsmen workshops. Farewell dinner with folk show featuring traditional Kyrgyz music and dance. Overnight in Bishkek.",
+        highlights: [
+          "Return flight to Bishkek",
+          "Shopping at Dordoy Bazaar",
+          "Craftsmen workshops",
+          "Farewell dinner",
+          "Traditional folk show"
+        ],
+        stats: {
+          distance: "Flight 1h",
+          duration: "Full day",
+          accommodation: "Hotel"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop"
+        ]
+      },
+      14: {
+        title: "Departure",
+        location: "Bishkek",
+        description: "Transfer to Manas International Airport according to your flight schedule. End of services. Safe travels and hope to see you again in Kyrgyzstan!",
+        highlights: [
+          "Hotel check-out",
+          "Airport transfer",
+          "Departure assistance",
+          "End of tour",
+          "Safe travels"
+        ],
+        stats: {
+          distance: "25 km",
+          duration: "Half day",
+          accommodation: "N/A"
+        },
+        images: [
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop",
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
+        ]
+      }
+    };
+
+    // Display itinerary function
+    function displayItinerary(day) {
+      const data = itineraryData[day];
+      const display = document.getElementById('itinerary-display');
+      
+      display.innerHTML = `
+        <div class="itinerary-content">
+          <h3><i class="ri-map-pin-2-fill"></i> Day ${day}: ${data.title}</h3>
+          <p class="itinerary-description">${data.description}</p>
+          
+          <div class="itinerary-highlights">
+            <h4><i class="ri-star-fill"></i> Highlights</h4>
+            <ul>
+              ${data.highlights.map(h => `<li><i class="ri-check-line"></i> ${h}</li>`).join('')}
+            </ul>
+          </div>
+
+          <div class="day-stats">
+            <div class="stat-item">
+              <i class="ri-map-line"></i>
+              <span>${data.stats.distance}</span>
+            </div>
+            <div class="stat-item">
+              <i class="ri-time-line"></i>
+              <span>${data.stats.duration}</span>
+            </div>
+            <div class="stat-item">
+              <i class="ri-hotel-line"></i>
+              <span>${data.stats.accommodation}</span>
+            </div>
+          </div>
+
+          <div class="itinerary-gallery">
+            ${data.images.map(img => `<img src="${img}" alt="Day ${day}">`).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // Day button click handlers
+    document.querySelectorAll('.day-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const day = parseInt(btn.dataset.day);
+        openDayViewer(day);
+      });
+    });
+
+    // Fullscreen Day Viewer
+    const dayViewer = document.getElementById('dayViewer');
+    const viewerBg = document.getElementById('viewerBg');
+    const viewerContent = document.getElementById('viewerContent');
+    const closeViewerBtn = document.getElementById('closeViewerBtn');
+    const prevDayBtn = document.getElementById('prevDayBtn');
+    const nextDayBtn = document.getElementById('nextDayBtn');
+    let currentViewerDay = 1;
+
+    function openDayViewer(day) {
+      currentViewerDay = day;
+      renderDayViewer(day);
+      dayViewer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDayViewer() {
+      dayViewer.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function renderDayViewer(day) {
+      const data = itineraryData[day];
+      
+      // Set background
+      viewerBg.style.backgroundImage = `url(${data.images[0]})`;
+      
+      // Render content
+      viewerContent.innerHTML = `
+        <div class="viewer-header">
+          <div class="viewer-day-badge">Day ${day} of 14</div>
+          <h1 class="viewer-title">${data.title}</h1>
+          <div class="viewer-location">
+            <i class="ri-map-pin-2-fill"></i>
+            ${data.location}
+          </div>
+        </div>
+
+        <div class="viewer-stats">
+          <div class="viewer-stat">
+            <i class="ri-map-line"></i>
+            <div>
+              <div style="font-size: 12px; opacity: 0.8;">Distance</div>
+              <div style="font-weight: 600;">${data.stats.distance}</div>
+            </div>
+          </div>
+          <div class="viewer-stat">
+            <i class="ri-time-line"></i>
+            <div>
+              <div style="font-size: 12px; opacity: 0.8;">Duration</div>
+              <div style="font-weight: 600;">${data.stats.duration}</div>
+            </div>
+          </div>
+          <div class="viewer-stat">
+            <i class="ri-hotel-line"></i>
+            <div>
+              <div style="font-size: 12px; opacity: 0.8;">Accommodation</div>
+              <div style="font-weight: 600;">${data.stats.accommodation}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="viewer-description">
+          <h3>Daily Schedule</h3>
+          <div style="font-size: 16px; line-height: 1.8; color: #333;">
+            ${data.description}
+          </div>
+          
+          <h4 style="font-size: 20px; margin-bottom: 20px; color: #1a1a1a;">
+            <i class="ri-star-fill" style="color: #FDB913;"></i> Highlights
+          </h4>
+          <div class="viewer-highlights">
+            ${data.highlights.map(h => `
+              <div class="viewer-highlight-item">
+                <i class="ri-check-line"></i>
+                <span>${h}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="viewer-gallery">
+          <h3>Photo Gallery</h3>
+          <div class="gallery-grid">
+            ${data.images.map(img => `<img src="${img}" alt="Day ${day}">`).join('')}
+          </div>
+        </div>
+      `;
+
+      // Update navigation buttons
+      prevDayBtn.disabled = day === 1;
+      nextDayBtn.disabled = day === 14;
+
+      // Scroll to top
+      dayViewer.scrollTop = 0;
+    }
+
+    // Navigation handlers
+    closeViewerBtn.addEventListener('click', closeDayViewer);
+    
+    prevDayBtn.addEventListener('click', () => {
+      if (currentViewerDay > 1) {
+        openDayViewer(currentViewerDay - 1);
+      }
+    });
+
+    nextDayBtn.addEventListener('click', () => {
+      if (currentViewerDay < 14) {
+        openDayViewer(currentViewerDay + 1);
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!dayViewer.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') {
+        closeDayViewer();
+      } else if (e.key === 'ArrowLeft' && currentViewerDay > 1) {
+        openDayViewer(currentViewerDay - 1);
+      } else if (e.key === 'ArrowRight' && currentViewerDay < 14) {
+        openDayViewer(currentViewerDay + 1);
+      }
+    });
+
+    // Initialize with Day 1
+    displayItinerary(1);
+
+    // View toggle functionality
+    const viewToggle = document.getElementById('viewToggle');
+    const interactiveView = document.getElementById('interactive-view');
+    const fullView = document.getElementById('full-view');
+    let isFullView = false;
+
+    // Generate full itinerary HTML
+    function generateFullView() {
+      let html = '';
+      for (let day = 1; day <= 14; day++) {
+        const data = itineraryData[day];
+        html += `
+          <div class="full-itinerary-item">
+            <h3>
+              <span class="day-badge">Day ${day}</span>
+              ${data.title}
+            </h3>
+            <p>${data.description}</p>
+          </div>
+        `;
+      }
+      fullView.innerHTML = html;
+    }
+
+    generateFullView();
+
+    viewToggle.addEventListener('click', () => {
+      isFullView = !isFullView;
+      
+      if (isFullView) {
+        interactiveView.style.display = 'none';
+        fullView.style.display = 'block';
+        viewToggle.innerHTML = '<i class="ri-layout-grid-line"></i> Show Interactive View';
+      } else {
+        interactiveView.style.display = 'block';
+        fullView.style.display = 'none';
+        viewToggle.innerHTML = '<i class="ri-list-check"></i> Show Full Itinerary';
+      }
+    });
+
+    // FAQ Toggle
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        const wasActive = item.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        
+        if (!wasActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth scroll to booking
+    document.querySelectorAll('a[href="#booking"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

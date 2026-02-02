@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"      rel="stylesheet"/>
+    <link      rel="stylesheet"      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/tour.css" />    
+    <link rel="stylesheet" href="styles/info.css" />
+    <link rel="stylesheet" href="styles/desrination.css" />
+    
+    
+    <title>Web Design Mastery | SKYWINGS</title>
+  </head>
+  <body>
+    <nav>
+      <div class="navRightSide">
+        
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="#"><img  class="logo" src="./assets/logo.svg" alt="Nomad logo"></a>
+        </div>
+
+        <div class="search-wrapper-mbl">
+          <div class="search-bar">
+          <input type="text" placeholder="Search for a place, city, or destination..." autocomplete="off">
+          <img src="./assets/Loop.svg" alt="Search">
+          <ul class="suggestions"></ul>
+          </div>          
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <!-- <i class="ri-menu-3-fill"></i> -->
+           <img src="./assets/menu.svg" class="menu" alt="menu-icon">
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Destinations</a></li>
+        <li><a href="#tour">Packages</a></li>
+        <li><a href="#package">Blog</a></li>
+        <li><a href="#contact">About Us</a></li>
+        <li><a href="#">BOOK TRIP</a></li>
+      </ul>
+      </div>
+      <div class="navLeftside">
+        
+      <div class="search-wrapper">
+          <div class="search-bar">
+          <input type="text" placeholder="Search for a place, city, or destination..." autocomplete="off">
+          <img src="./assets/Loop.svg" alt="Search">
+          <ul class="suggestions"></ul>
+          </div>
+        </div>
+     
+      <div class="nav__btns">
+        <button class="btn">Book Trip</button>
+      </div>
+    </nav>
+
+      </div>
+
+    <header id="home" >      
+      <div class="hero__overlay">
+        <span class="hero__word">KYRGYZ</span>
+      </div>
+      <div class="hero__content">
+        <div class="main_content">
+          <h1>Kyrgyzstan Guided Tours & Adventures</h1>
+           <p class="hero__subtitle">Discover alpine lakes and nomadic culture with local experts. Book your 2026 adventure.</p>
+
+        <div class="hero__actions">
+          <button class="btn btn--primary">Plan Your Trip</button>
+          <button class="btn btn--outline">Explore Destinations</button>
+        </div>
+        </div>
+
+        </div>
+       
+      </div>
+    </header>
+    <section class="section__container advantages">
+      <div class="section-title">
+        <h2 class="section__header">WHY CHOOSE US?</h2>              
+      </div> 
+        <div class="plus-cards-wrapper">
+            <!-- Card 1 -->
+            <div class="plus-card">
+                <div class="icon-box"><img src="./assets/brand.gif" alt="animatied medal"></div>
+                <h3 class="plus-card-title">Professional Approach</h3>
+                <p class="plus-card-text">Every journey is carefully planned with attention to detail. We ensure your experience is flawless and every moment unforgettable.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="plus-card">
+                <div class="icon-box"><img src="./assets/solo-traveller.gif" alt="animatied medal"></div>
+                <h3 class="plus-card-title">Best Tour Guide</h3>
+                <p class="plus-card-text">Our guides grew up in these traditions and know the region inside and out. They've worked internationally and know world-class service standards.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="plus-card">
+                <div class="icon-box"> <img src="./assets/airplane.gif" alt="animatied airplane"></div>
+                <h3 class="plus-card-title">Easy Booking</h3>
+                <p class="plus-card-text">Simple booking process in just a few clicks. Plus, enjoy a free airport transfer with every booking. We've got you covered from start to finish.</p>
+            </div>
+        </div>
+    </section>
+    <div class="tour-container">
+      <div class="section-title">
+        <h2 class="section__header">TOUR PACKAGES 2026</h2>
+        <p class="section__description">
+          From high mountain valleys to nomadic camps discover where your next journey will take you.
+        </p>        
+      </div>      
+      <hr class="underline">
+    <div class="cards-wrapper">
+      <div class="journey-card" data-index="0">
+        <img src="./assets/altyn-arashan.png" alt="Relaxed Journey" class="journey-card-bg">
+        <div class="card-overlay">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Relaxed Journey</h2>
+              <p class="card-subtitle">For springs, quiet valleys and<br>nomadic culture</p>
+            </div>
+            <div class="price-tag">
+              800$
+            </div>
+          </div>
+          <div>
+            <div class="card-gallery">
+              <img src="https://eurasia.travel/wp-content/uploads/2024/09/Altyn-Arashan-gorge-15.jpg" alt="" class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=150&h=100&fit=crop" alt="" class="gallery-img">
+              <img src="./assets/barskoon-waterfall.png" alt="" class="gallery-img">
+            </div>
+
+            <div class="card-actions">
+              <button class="card-btn btn-primary">BOOK NOW</button>
+             <a href="./relaxed-tour.html" class="card-btn btn-secondary"> READ MORE →</a>
+            </div>
+
+            <div class="card-footer">
+              <div class="footer-item">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/></svg>
+                <span>12 days</span>
+              </div>
+              <div class="footer-item">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+                <span>All Year Round</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="journey-card" data-index="1">
+        <img src="./assets/horse-riding.png" alt="Balanced Journey" class="journey-card-bg">
+        <div class="card-overlay">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Balanced Journey</h2>
+              <p class="card-subtitle">Horseback rides through<br>untouched nomadic landscapes</p>
+            </div>
+            <div class="price-tag">
+              900$
+            </div>
+          </div>
+
+          <div>
+            <div class="card-gallery">
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=150&h=100&fit=crop" alt="" class="gallery-img">
+              <img src="./assets/canyon-skazka.png" alt="" class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=150&h=100&fit=crop" alt="" class="gallery-img">
+            </div>
+
+            <div class="card-actions">
+              <button class="card-btn btn-primary">BOOK</button>
+              <button class="card-btn btn-secondary">READ →</button>
+            </div>
+
+            <div class="card-footer">
+              <div class="footer-item">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/></svg>
+                <span>10 days</span>
+              </div>
+              <div class="footer-item">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+                <span>Summer Only</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="journey-card" data-index="2">
+        <img src="./assets/kyrgyz-archery.jpg" alt="Active Journey" class="journey-card-bg">
+        <div class="card-overlay">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Active Journey</h2>
+              <p class="card-subtitle">For those who love real outdoor<br>experiences</p>
+            </div>
+            <div class="price-tag">
+              1000$
+            </div>
+          </div>
+
+          <div>
+            <div class="card-gallery">
+              <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=150&h=100&fit=crop" alt="" class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=150&h=100&fit=crop" alt="" class="gallery-img">
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=150&h=100&fit=crop" alt="" class="gallery-img">
+            </div>
+
+            <div class="card-actions">
+              <button class="card-btn btn-primary">BOOK NOW</button>
+              <button class="card-btn btn-secondary">READ MORE →</button>
+            </div>
+
+            <div class="card-footer">
+              <div class="footer-item">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/></svg>
+                <span>15 days</span>
+              </div>
+              <div class="footer-item">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+                <span>Spring-Autumn</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="progress-line">
+      <div class="progress-bar"></div>
+    </div>
+  </div>
+
+
+    <section class="section__container destination__container" id="about">
+      <div class="section-title">
+        <h2 class="section__header">POPULAR DESTINATIONS</h2>
+        <p class="section__description">
+          From high mountain valleys to nomadic camps discover where your next journey will take you.
+        </p>        
+      </div>      
+      <hr class="underline">
+       <div class="filter-tags">
+      <div class="tag active" data-tag="all">All</div>
+      <div class="tag" data-tag="city"> <img src="./assets/city.svg" alt="city symbol"> city</div>
+      <div class="tag" data-tag="island"> <img src="./assets/ethno.svg" alt="culture symbol"> culture </div>
+      <div class="tag" data-tag="modern"> <img src="./assets/canyon.svg" alt="canyon symbol"> canyon</div>
+      <div class="tag" data-tag="historic"> <img src="./assets/mountain.svg" alt="mountain symbol"> mountain</div>
+      <div class="tag" data-tag="beach"><img src="./assets/hourse-riding.svg" alt="hourse riding symbol"> entertainment</div>
+    </div>
+    <div class="carousel-container">
+    <button class="carousel-btn prev" id="prevBtn">
+      <i class="ri-arrow-left-s-line"></i>
+    </button>
+    
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="destination__card" data-id="1" data-tags="city,modern">
+          <div class="card-badge">
+           <span > activity: &nbsp; </span> <span class="label">Easy</span>
+          </div>
+          <img src="https://eurasia.travel/wp-content/uploads/2024/09/Altyn-Arashan-gorge-15.jpg" alt="New York City" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Altyn-Arashan</h4>
+              <div class="place-name">
+                <img src="./assets/location.svg" alt="location symbol"> <p>Issyk-Kul</p>
+              </div> 
+            </div>
+            <div class="destination__rating">
+              <span><i class="ri-star-fill"></i></span>
+              4.7
+            </div>
+          </div>
+        </div>
+        <div class="destination__card" data-id="2" data-tags="city,historic">
+          <div class="card-badge">
+            <span > activity: &nbsp; </span> <span class="label">Easy</span>
+          </div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Bishkek_City%27s_business_center.jpg" alt="Paris" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Bishkek</h4>
+              <div class="place-name">
+                <img src="./assets/location.svg" alt="location symbol"> <p>Capital city</p>
+              </div> 
+            </div>
+            <div class="destination__rating">
+              <span><i class="ri-star-fill"></i></span>
+              4.5
+            </div>
+          </div>
+        </div>
+        <div class="destination__card" data-id="3" data-tags="island,beach">
+          <div class="card-badge">
+            <span > activity: &nbsp; </span> <span class="label">Easy</span>
+          </div>
+          <img src="./assets/canyon-skazka.png" alt="Bali" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Fairytale canyon</h4>
+              <div class="place-name">
+                <img src="./assets/location.svg" alt="location symbol"> <p>Issyk-Kul</p>
+              </div> 
+            </div>
+            <div class="destination__rating">
+              <span><i class="ri-star-fill"></i></span>
+              4.8
+            </div>
+          </div>
+        </div>
+        <div class="destination__card" data-id="4" data-tags="city,modern">
+          <div class="card-badge">
+           <span > activity: &nbsp; </span> <span class="label">Easy</span>
+          </div>
+          <img src="./assets/barskoon-waterfall.png" alt="Tokyo" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Barskoon Waterfall</h4>
+             <div class="place-name">
+                <img src="./assets/location.svg" alt="location symbol"> <p>Issyk-Kul</p>
+              </div> 
+            </div>
+            <div class="destination__rating">
+              <span><i class="ri-star-fill"></i></span>
+              4.9
+            </div>
+          </div>
+        </div>
+        <div class="destination__card" data-id="5" data-tags="island,beach,historic">
+          <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&h=600&fit=crop" alt="Santorini" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Paradise Island</h4>
+              <div class="place-name">
+                <img src="./assets/location.svg" alt="location symbol"> <p>Issyk-Kul Region</p>
+              </div> 
+            </div>
+            <div class="destination__rating">
+              <span><i class="ri-star-fill"></i></span>
+              4.6
+            </div>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=600&fit=crop" alt="Dubai" />
+          <div class="destination__card__details">
+            <div>
+              <h4>Desert Wonder</h4>
+              <div class="place-name">
+                <img src="./assets/location.svg" alt="location symbol"> <p>Issyk-Kul Region</p>
+              </div> 
+            </div>
+            <div class="destination__rating">
+              <span><i class="ri-star-fill"></i></span>
+              4.7
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-btn next" id="nextBtn">
+      <i class="ri-arrow-right-s-line"></i>
+    </button>    
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+     </section>
+      <section class="section__container">
+         <div class="section-title">
+        <h2 class="section__header">LATEST STORIES</h2>
+        <p class="section__description">
+          From high mountain valleys to nomadic camps discover where your next journey will take you.
+        </p>        
+      </div>      
+      <hr class="underline">
+    <div class="container">
+      <div class="main-card">
+        <img src="./assets/besh-barmak.webp" alt="Kyrgyz Cuisine" class="main-card-image">
+        <div class="main-card-content">
+          <div class="category">Food & Drinks</div>
+          <h2 class="info-title">Kyrgyz Cuisine: A Culinary Journey Through Kyrgyzstan</h2>
+          <p class="main-description">Ready to taste the true spirit of Central Asia? Kyrgyz cuisine is more than just food — it's a journey through nomadic traditions, mountain life, and centuries of culture. Here we've collected the top 10 must-try foods and drinks in Kyrgyzstan — the ultimate list every traveler should experience.</p>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="small-card">
+          <img src="./assets/kyrgyz-flag.webp" alt="Kyrgyzstan Flag" class="small-card-image">
+          <div class="small-card-content">
+            <div class="category">Safety</div>
+            <h3 class="info-title">Is it safe to travel to Kyrgyzstan?</h3>
+            <div class="date">January 22 2025</div>
+          </div>
+        </div>
+
+        <div class="small-card">
+          <img src="./assets/kyrgyz-hotel.webp" alt="Hotel Room" class="small-card-image">
+          <div class="small-card-content">
+            <div class="category">Hotels</div>
+            <h3 class="info-title">We include best hotels of each place.</h3>
+            <div class="date">January 22 2025</div>
+          </div>
+        </div>
+
+        <div class="small-card">
+          <img src="./assets/kyrgyz-yourt.webp" alt="Kyrgyzstan Landscape" class="small-card-image">
+          <div class="small-card-content">
+            <div class="category">Hotels</div>
+            <h3 class="info-title">10 reasons to visit Kyrgyzstan</h3>
+            <div class="date">January 22 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   
+
+
+
+    <footer id="contact">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <a href="#" class="logo">Skywings</a>
+          </div>
+          <p>
+            Explore the world with ease and excitement through our comprehensive
+            travel platform. Your journey begins here, where seamless planning
+            meets unforgettable experiences.
+          </p>
+          <ul class="footer__socials">
+            <li>
+              <a href="#"><i class="ri-facebook-fill"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-youtube-line"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Flights</a></li>
+            <li><a href="#">Hotels</a></li>
+            <li><a href="#">Cruise</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact Us</h4>
+          <ul class="footer__links">
+            <li>
+              <a href="#">
+                <span><i class="ri-phone-fill"></i></span> +996 500 969 212
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><i class="ri-record-mail-line"></i></span>nomad@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><i class="ri-map-pin-2-fill"></i></span> Bishkek, Kyrgyzstan
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Subscribe</h4>
+          <form action="/">
+            <input type="text" placeholder="Enter your email" />
+            <button class="btn">Send</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2026 Alymsvibe. All rights reserved.
+      </div>
+    </footer>
+<script src="tour-card.js"></script>
+    <script src="searchBar.js"></script>
+    <script src="./slides.js"></script>
+    <script src="main.js"></script>
+    
+  </body>
+</html>
