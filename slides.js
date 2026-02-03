@@ -13,9 +13,12 @@ let visibleCards = Array.from(cards);
 
 // Переменные для свайпа
 let startX = 0;
+let startY = 0;
 let currentX = 0;
+let currentY = 0;
 let isDragging = false;
 let startPos = 0;
+let isMobile = window.innerWidth <= 768;
 
 function cloneCards() {
   const clones = track.querySelectorAll('.clone');
@@ -43,6 +46,8 @@ function cloneCards() {
 }
 
 function updateSlidesPerView() {
+  isMobile = window.innerWidth <= 768;
+  
   if (window.innerWidth > 1200) {
     slidesPerView = 4;
   } else if (window.innerWidth > 1024) {
@@ -87,7 +92,7 @@ function updateCarousel(withTransition = true) {
   const moveDistance = initialOffset + (currentSlide * (cardWidth + gap));
   
   if (withTransition) {
-    track.style.transition = 'transform 0.5s ease-in-out';
+    track.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
   } else {
     track.style.transition = 'none';
   }
@@ -107,7 +112,7 @@ function updateDots() {
 function goToSlide(index) {
   currentSlide = index;
   updateCarousel();
-  if (activeTag === 'all') {
+  if (activeTag === 'all' && !isMobile) {
     startAutoplay();
   }
 }
@@ -121,7 +126,7 @@ function nextSlide() {
       setTimeout(() => {
         currentSlide = 0;
         updateCarousel(false);
-      }, 500);
+      }, 400);
     }
   } else {
     const maxSlide = visibleCards.length - slidesPerView;
@@ -145,7 +150,7 @@ function prevSlide() {
       setTimeout(() => {
         currentSlide = visibleCards.length - 1;
         updateCarousel(false);
-      }, 500);
+      }, 400);
     }
   } else {
     if (currentSlide > 0) {
@@ -156,6 +161,9 @@ function prevSlide() {
 }
 
 function startAutoplay() {
+  // Автопрокрутка только на десктопах
+  if (isMobile) return;
+  
   clearInterval(autoplayInterval);
   autoplayInterval = setInterval(nextSlide, 4000);
 }
@@ -198,17 +206,18 @@ function filterCards(tag) {
   createDots();
   updateCarousel(false);
   
-  if (tag === 'all') {
+  if (tag === 'all' && !isMobile) {
     startAutoplay();
   } else {
     stopAutoplay();
   }
 }
 
-// Свайп функционал
+// Улучшенный свайп функционал
 function handleDragStart(e) {
   isDragging = true;
   startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+  startY = e.type.includes('mouse') ? e.pageY : e.touches[0].clientY;
   
   const cardWidth = visibleCards[0].offsetWidth;
   const gap = 20;
@@ -221,12 +230,19 @@ function handleDragStart(e) {
 
 function handleDragMove(e) {
   if (!isDragging) return;
-  e.preventDefault();
   
   currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-  const diff = currentX - startX;
+  currentY = e.type.includes('mouse') ? e.pageY : e.touches[0].clientY;
   
-  track.style.transform = `translateX(-${startPos - diff}px)`;
+  const diffX = Math.abs(currentX - startX);
+  const diffY = Math.abs(currentY - startY);
+  
+  // Если свайп больше горизонтальный чем вертикальный - блокируем скролл
+  if (diffX > diffY && diffX > 10) {
+    e.preventDefault();
+    const diff = currentX - startX;
+    track.style.transform = `translateX(-${startPos - diff}px)`;
+  }
 }
 
 function handleDragEnd(e) {
@@ -234,30 +250,39 @@ function handleDragEnd(e) {
   isDragging = false;
   
   const diff = currentX - startX;
-  const threshold = 50;
+  const diffY = Math.abs(currentY - startY);
   
-  if (Math.abs(diff) > threshold) {
-    if (diff > 0) {
-      prevSlide();
+  // Проверяем что это был горизонтальный свайп
+  if (Math.abs(diff) > diffY) {
+    const threshold = isMobile ? 50 : 80; // Меньше порог на мобильных
+    
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
     } else {
-      nextSlide();
+      updateCarousel();
     }
   } else {
     updateCarousel();
   }
   
-  if (activeTag === 'all') {
+  if (activeTag === 'all' && !isMobile) {
     startAutoplay();
   }
 }
 
-// События для мыши
-track.addEventListener('mousedown', handleDragStart);
-track.addEventListener('mousemove', handleDragMove);
-track.addEventListener('mouseup', handleDragEnd);
-track.addEventListener('mouseleave', handleDragEnd);
+// События для мыши (только на десктопе)
+if (!isMobile) {
+  track.addEventListener('mousedown', handleDragStart);
+  track.addEventListener('mousemove', handleDragMove);
+  track.addEventListener('mouseup', handleDragEnd);
+  track.addEventListener('mouseleave', handleDragEnd);
+}
 
-// События для тачскрина
+// События для тачскрина (всегда)
 track.addEventListener('touchstart', handleDragStart, { passive: true });
 track.addEventListener('touchmove', handleDragMove, { passive: false });
 track.addEventListener('touchend', handleDragEnd);
@@ -272,28 +297,41 @@ tags.forEach(tag => {
 
 prevBtn.addEventListener('click', () => {
   prevSlide();
-  if (activeTag === 'all') {
+  if (activeTag === 'all' && !isMobile) {
     startAutoplay();
   }
 });
 
 nextBtn.addEventListener('click', () => {
   nextSlide();
-  if (activeTag === 'all') {
+  if (activeTag === 'all' && !isMobile) {
     startAutoplay();
   }
 });
 
-window.addEventListener('resize', updateSlidesPerView);
+window.addEventListener('resize', () => {
+  updateSlidesPerView();
+  // Перезапускаем/останавливаем автопрокрутку при изменении размера
+  if (activeTag === 'all') {
+    stopAutoplay();
+    if (!isMobile) {
+      startAutoplay();
+    }
+  }
+});
 
 cloneCards();
 updateSlidesPerView();
-startAutoplay();
+// Автопрокрутка только на десктопе
+if (!isMobile) {
+  startAutoplay();
+}
 
 const carouselContainer = document.querySelector('.carousel-container');
 
-carouselContainer.addEventListener('mouseenter', () => {
-  stopAutoplay();
-});
-
-
+// Остановка автопрокрутки только на десктопе
+if (!isMobile) {
+  carouselContainer.addEventListener('mouseenter', () => {
+    stopAutoplay();
+  });
+}
