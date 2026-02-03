@@ -22,20 +22,25 @@ body{
   background-color: #f7f7f7;
 }
 
-
-.navLeftside{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+header::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: calc(100% - 2rem);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../assets/hero.webp");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 35px;
+  z-index: -1;
+  filter: brightness(0.7);
 }
 
-.navRightSide{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5%;
-}
+
+
   .hero {
   position: relative;
   min-height: 100vh;
@@ -49,7 +54,6 @@ body{
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: url("./assets/Altyn-Arashan-bg.png") center / cover no-repeat;
   z-index: 1;
 }
 
@@ -385,6 +389,20 @@ nav {
   display: none;
 }
 
+.navLeftside{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navRightSide{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
 .menu{
   height: 18px;
 }
@@ -465,22 +483,6 @@ header {
   position: relative;
 }
 
-header::before {
-  position: absolute;
-  content: "";
-  height: 100%;
-  width: calc(100% - 2rem);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-image: url("../assets/hero.webp");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 35px;
-  z-index: -1;
-  filter: brightness(0.7);
-}
 
 .header__container {
   display: grid;
@@ -646,4 +648,5 @@ header::before {
     width: 150px;
   }
 }
+
 
