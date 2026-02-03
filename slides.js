@@ -18,7 +18,11 @@ let currentX = 0;
 let currentY = 0;
 let isDragging = false;
 let startPos = 0;
-let isMobile = window.innerWidth <= 768;
+
+// Функция проверки мобильного устройства
+function isMobileDevice() {
+  return window.innerWidth <= 768;
+}
 
 function cloneCards() {
   const clones = track.querySelectorAll('.clone');
@@ -46,8 +50,6 @@ function cloneCards() {
 }
 
 function updateSlidesPerView() {
-  isMobile = window.innerWidth <= 768;
-  
   if (window.innerWidth > 1200) {
     slidesPerView = 4;
   } else if (window.innerWidth > 1024) {
@@ -112,7 +114,7 @@ function updateDots() {
 function goToSlide(index) {
   currentSlide = index;
   updateCarousel();
-  if (activeTag === 'all' && !isMobile) {
+  if (activeTag === 'all' && !isMobileDevice()) {
     startAutoplay();
   }
 }
@@ -161,15 +163,20 @@ function prevSlide() {
 }
 
 function startAutoplay() {
-  // Автопрокрутка только на десктопах
-  if (isMobile) return;
+  // КРИТИЧНО: НЕ запускать на мобильных
+  if (isMobileDevice()) {
+    console.log('Autoplay disabled on mobile');
+    return;
+  }
   
   clearInterval(autoplayInterval);
   autoplayInterval = setInterval(nextSlide, 4000);
+  console.log('Autoplay started');
 }
 
 function stopAutoplay() {
   clearInterval(autoplayInterval);
+  console.log('Autoplay stopped');
 }
 
 function filterCards(tag) {
@@ -206,10 +213,10 @@ function filterCards(tag) {
   createDots();
   updateCarousel(false);
   
-  if (tag === 'all' && !isMobile) {
+  // Автопрокрутка ТОЛЬКО на десктопе
+  stopAutoplay();
+  if (tag === 'all' && !isMobileDevice()) {
     startAutoplay();
-  } else {
-    stopAutoplay();
   }
 }
 
@@ -237,7 +244,7 @@ function handleDragMove(e) {
   const diffX = Math.abs(currentX - startX);
   const diffY = Math.abs(currentY - startY);
   
-  // Если свайп больше горизонтальный чем вертикальный - блокируем скролл
+  // Если свайп больше горизонтальный чем вертикальный
   if (diffX > diffY && diffX > 10) {
     e.preventDefault();
     const diff = currentX - startX;
@@ -252,9 +259,8 @@ function handleDragEnd(e) {
   const diff = currentX - startX;
   const diffY = Math.abs(currentY - startY);
   
-  // Проверяем что это был горизонтальный свайп
   if (Math.abs(diff) > diffY) {
-    const threshold = isMobile ? 50 : 80; // Меньше порог на мобильных
+    const threshold = isMobileDevice() ? 50 : 80;
     
     if (Math.abs(diff) > threshold) {
       if (diff > 0) {
@@ -269,20 +275,19 @@ function handleDragEnd(e) {
     updateCarousel();
   }
   
-  if (activeTag === 'all' && !isMobile) {
+  // НЕ запускаем автопрокрутку на мобильных
+  if (activeTag === 'all' && !isMobileDevice()) {
     startAutoplay();
   }
 }
 
-// События для мыши (только на десктопе)
-if (!isMobile) {
-  track.addEventListener('mousedown', handleDragStart);
-  track.addEventListener('mousemove', handleDragMove);
-  track.addEventListener('mouseup', handleDragEnd);
-  track.addEventListener('mouseleave', handleDragEnd);
-}
+// События для мыши
+track.addEventListener('mousedown', handleDragStart);
+track.addEventListener('mousemove', handleDragMove);
+track.addEventListener('mouseup', handleDragEnd);
+track.addEventListener('mouseleave', handleDragEnd);
 
-// События для тачскрина (всегда)
+// События для тачскрина
 track.addEventListener('touchstart', handleDragStart, { passive: true });
 track.addEventListener('touchmove', handleDragMove, { passive: false });
 track.addEventListener('touchend', handleDragEnd);
@@ -297,41 +302,40 @@ tags.forEach(tag => {
 
 prevBtn.addEventListener('click', () => {
   prevSlide();
-  if (activeTag === 'all' && !isMobile) {
+  if (activeTag === 'all' && !isMobileDevice()) {
     startAutoplay();
   }
 });
 
 nextBtn.addEventListener('click', () => {
   nextSlide();
-  if (activeTag === 'all' && !isMobile) {
+  if (activeTag === 'all' && !isMobileDevice()) {
     startAutoplay();
   }
 });
 
 window.addEventListener('resize', () => {
   updateSlidesPerView();
-  // Перезапускаем/останавливаем автопрокрутку при изменении размера
-  if (activeTag === 'all') {
-    stopAutoplay();
-    if (!isMobile) {
-      startAutoplay();
-    }
+  // При изменении размера пересчитываем автопрокрутку
+  stopAutoplay();
+  if (activeTag === 'all' && !isMobileDevice()) {
+    startAutoplay();
   }
 });
 
 cloneCards();
 updateSlidesPerView();
-// Автопрокрутка только на десктопе
-if (!isMobile) {
+
+// ГЛАВНОЕ: запускаем автопрокрутку ТОЛЬКО на десктопе
+if (!isMobileDevice()) {
   startAutoplay();
 }
 
 const carouselContainer = document.querySelector('.carousel-container');
 
-// Остановка автопрокрутки только на десктопе
-if (!isMobile) {
-  carouselContainer.addEventListener('mouseenter', () => {
+// Остановка при наведении только на десктопе
+carouselContainer.addEventListener('mouseenter', () => {
+  if (!isMobileDevice()) {
     stopAutoplay();
-  });
-}
+  }
+});
