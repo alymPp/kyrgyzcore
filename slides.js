@@ -4,205 +4,338 @@ const nextBtn = document.getElementById('nextBtn');
 const dotsContainer = document.getElementById('carouselDots');
 const cards = document.querySelectorAll('.destination__card');
 const tags = document.querySelectorAll('.tag');
-const carouselContainer = document.querySelector('.carousel-container');
 
 let currentSlide = 0;
 let slidesPerView = 4;
-let autoplayInterval = null;
+let autoplayInterval;
 let activeTag = 'all';
 let visibleCards = Array.from(cards);
 
-// ===== MOBILE CHECK =====
+// Переменные для свайпа
+let startX = 0;
+let startY = 0;
+let currentX = 0;
+let currentY = 0;
+let isDragging = false;
+let startPos = 0;
+
+// Функция проверки мобильного устройства
 function isMobileDevice() {
   return window.innerWidth <= 768;
 }
 
-// ===== CLONE FOR INFINITE =====
 function cloneCards() {
-  track.querySelectorAll('.clone').forEach(c => c.remove());
-
-  const arr = [...visibleCards];
-  arr.forEach(card => {
-    const c = card.cloneNode(true);
-    c.classList.add('clone');
-    track.appendChild(c);
+  const clones = track.querySelectorAll('.clone');
+  clones.forEach(clone => clone.remove());
+  
+  const visibleCardsArray = Array.from(visibleCards);
+  
+  visibleCardsArray.forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.classList.add('clone');
+    track.appendChild(clone);
   });
-
-  arr.reverse().forEach(card => {
-    const c = card.cloneNode(true);
-    c.classList.add('clone');
-    track.insertBefore(c, track.firstChild);
+  
+  visibleCardsArray.reverse().forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.classList.add('clone');
+    track.insertBefore(clone, track.firstChild);
   });
-
-  const w = visibleCards[0].offsetWidth + 20;
+  
+  const cardWidth = visibleCards[0].offsetWidth;
+  const gap = 20;
+  const offset = visibleCardsArray.length * (cardWidth + gap);
   track.style.transition = 'none';
-  track.style.transform = `translateX(-${arr.length * w}px)`;
+  track.style.transform = `translateX(-${offset}px)`;
 }
 
-// ===== SLIDES PER VIEW =====
 function updateSlidesPerView() {
-  slidesPerView =
-    window.innerWidth > 1200 ? 4 :
-    window.innerWidth > 1024 ? 3 :
-    window.innerWidth > 768 ? 2 : 1;
-
-  if (activeTag === 'all') cloneCards();
+  if (window.innerWidth > 1200) {
+    slidesPerView = 4;
+  } else if (window.innerWidth > 1024) {
+    slidesPerView = 3;
+  } else if (window.innerWidth > 768) {
+    slidesPerView = 2;
+  } else {
+    slidesPerView = 1;
+  }
+  
+  if (activeTag === 'all') {
+    cloneCards();
+  }
+  
   createDots();
-  updateCarousel(false);
+  updateCarousel();
 }
 
-// ===== DOTS =====
 function createDots() {
   dotsContainer.innerHTML = '';
-  visibleCards.forEach((_, i) => {
+  const totalSlides = visibleCards.length;
+  if (totalSlides <= 0) return;
+  
+  for (let i = 0; i < totalSlides; i++) {
     const dot = document.createElement('div');
-    dot.className = 'dot' + (i === 0 ? ' active' : '');
-    dot.onclick = () => goToSlide(i);
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(i));
     dotsContainer.appendChild(dot);
-  });
+  }
 }
 
-function updateDots() {
-  document.querySelectorAll('.dot').forEach((d, i) => {
-    d.classList.toggle(
-      'active',
-      i === ((currentSlide % visibleCards.length + visibleCards.length) % visibleCards.length)
-    );
-  });
-}
-
-// ===== MOVE =====
-function updateCarousel(transition = true) {
-  if (!visibleCards.length) return;
-
-  const w = visibleCards[0].offsetWidth + 20;
-  const offset = activeTag === 'all' ? visibleCards.length * w : 0;
-
-  track.style.transition = transition ? 'transform .4s ease' : 'none';
-  track.style.transform = `translateX(-${offset + currentSlide * w}px)`;
+function updateCarousel(withTransition = true) {
+  if (visibleCards.length === 0) {
+    track.style.transform = 'translateX(0)';
+    return;
+  }
+  
+  const cardWidth = visibleCards[0].offsetWidth;
+  const gap = 20;
+  const initialOffset = activeTag === 'all' ? visibleCards.length * (cardWidth + gap) : 0;
+  const moveDistance = initialOffset + (currentSlide * (cardWidth + gap));
+  
+  if (withTransition) {
+    track.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+  } else {
+    track.style.transition = 'none';
+  }
+  
+  track.style.transform = `translateX(-${moveDistance}px)`;
   updateDots();
 }
 
-function goToSlide(i) {
-  currentSlide = i;
-  updateCarousel();
+function updateDots() {
+  const dots = document.querySelectorAll('.dot');
+  const actualIndex = ((currentSlide % visibleCards.length) + visibleCards.length) % visibleCards.length;
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === actualIndex);
+  });
 }
 
-// ===== NEXT / PREV =====
-function nextSlide() {
-  if (activeTag !== 'all') return;
-
-  currentSlide++;
+function goToSlide(index) {
+  currentSlide = index;
   updateCarousel();
+  if (activeTag === 'all' && !isMobileDevice()) {
+    startAutoplay();
+  }
+}
 
-  if (currentSlide >= visibleCards.length) {
-    setTimeout(() => {
-      currentSlide = 0;
-      updateCarousel(false);
-    }, 400);
+function nextSlide() {
+  if (activeTag === 'all') {
+    currentSlide++;
+    updateCarousel(true);
+    
+    if (currentSlide >= visibleCards.length) {
+      setTimeout(() => {
+        currentSlide = 0;
+        updateCarousel(false);
+      }, 400);
+    }
+  } else {
+    const maxSlide = visibleCards.length - slidesPerView;
+    if (maxSlide <= 0) return;
+    
+    if (currentSlide < maxSlide) {
+      currentSlide++;
+      updateCarousel();
+    } else {
+      stopAutoplay();
+    }
   }
 }
 
 function prevSlide() {
-  if (activeTag !== 'all') return;
-
-  currentSlide--;
-  updateCarousel();
-
-  if (currentSlide < 0) {
-    setTimeout(() => {
-      currentSlide = visibleCards.length - 1;
-      updateCarousel(false);
-    }, 400);
+  if (activeTag === 'all') {
+    currentSlide--;
+    updateCarousel(true);
+    
+    if (currentSlide < 0) {
+      setTimeout(() => {
+        currentSlide = visibleCards.length - 1;
+        updateCarousel(false);
+      }, 400);
+    }
+  } else {
+    if (currentSlide > 0) {
+      currentSlide--;
+      updateCarousel();
+    }
   }
 }
 
-// ===== AUTOPLAY (DESKTOP ONLY) =====
 function startAutoplay() {
-  stopAutoplay();
-  if (isMobileDevice()) return;
+  // КРИТИЧНО: НЕ запускать на мобильных
+  if (isMobileDevice()) {
+    console.log('Autoplay disabled on mobile');
+    return;
+  }
+  
+  clearInterval(autoplayInterval);
   autoplayInterval = setInterval(nextSlide, 4000);
+  console.log('Autoplay started');
 }
 
 function stopAutoplay() {
   clearInterval(autoplayInterval);
-  autoplayInterval = null;
+  console.log('Autoplay stopped');
 }
 
-// ===== FILTER =====
 function filterCards(tag) {
   activeTag = tag;
   currentSlide = 0;
+  
   visibleCards = [];
-
+  
   cards.forEach(card => {
-    const match =
-      tag === 'all' || card.dataset.tags?.split(',').includes(tag);
-    card.style.display = match ? 'block' : 'none';
-    if (match) visibleCards.push(card);
+    if (tag === 'all') {
+      card.style.display = 'block';
+      visibleCards.push(card);
+    } else {
+      const cardTags = card.getAttribute('data-tags');
+      if (cardTags && cardTags.split(',').includes(tag)) {
+        card.style.display = 'block';
+        visibleCards.push(card);
+      } else {
+        card.style.display = 'none';
+      }
+    }
   });
-
-  track.querySelectorAll('.clone').forEach(c => c.remove());
-  if (tag === 'all') cloneCards();
-
+  
+  const clones = track.querySelectorAll('.clone');
+  clones.forEach(clone => clone.remove());
+  
+  if (tag === 'all') {
+    cloneCards();
+  } else {
+    track.style.transition = 'none';
+    track.style.transform = 'translateX(0)';
+  }
+  
   createDots();
   updateCarousel(false);
+  
+  // Автопрокрутка ТОЛЬКО на десктопе
   stopAutoplay();
-  if (!isMobileDevice() && tag === 'all') startAutoplay();
+  if (tag === 'all' && !isMobileDevice()) {
+    startAutoplay();
+  }
 }
 
-// ===== SWIPE =====
-let startX = 0, currentX = 0, dragging = false, startPos = 0;
-
-track.addEventListener('pointerdown', e => {
-  dragging = true;
-  startX = e.clientX;
-  startPos = track.getBoundingClientRect().left;
+// Улучшенный свайп функционал
+function handleDragStart(e) {
+  isDragging = true;
+  startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+  startY = e.type.includes('mouse') ? e.pageY : e.touches[0].clientY;
+  
+  const cardWidth = visibleCards[0].offsetWidth;
+  const gap = 20;
+  const initialOffset = activeTag === 'all' ? visibleCards.length * (cardWidth + gap) : 0;
+  startPos = initialOffset + (currentSlide * (cardWidth + gap));
+  
   track.style.transition = 'none';
   stopAutoplay();
-});
+}
 
-track.addEventListener('pointermove', e => {
-  if (!dragging) return;
-  currentX = e.clientX;
-  track.style.transform = `translateX(${startPos + currentX - startX}px)`;
-});
-
-track.addEventListener('pointerup', () => {
-  if (!dragging) return;
-  dragging = false;
-  Math.abs(currentX - startX) > 60
-    ? currentX > startX ? prevSlide() : nextSlide()
-    : updateCarousel();
-  if (!isMobileDevice() && activeTag === 'all') startAutoplay();
-});
-
-// ===== EVENTS =====
-prevBtn.onclick = () => { prevSlide(); startAutoplay(); };
-nextBtn.onclick = () => { nextSlide(); startAutoplay(); };
-
-tags.forEach(t =>
-  t.onclick = () => {
-    tags.forEach(x => x.classList.remove('active'));
-    t.classList.add('active');
-    filterCards(t.dataset.tag);
+function handleDragMove(e) {
+  if (!isDragging) return;
+  
+  currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+  currentY = e.type.includes('mouse') ? e.pageY : e.touches[0].clientY;
+  
+  const diffX = Math.abs(currentX - startX);
+  const diffY = Math.abs(currentY - startY);
+  
+  // Если свайп больше горизонтальный чем вертикальный
+  if (diffX > diffY && diffX > 10) {
+    e.preventDefault();
+    const diff = currentX - startX;
+    track.style.transform = `translateX(-${startPos - diff}px)`;
   }
-);
+}
 
-carouselContainer.addEventListener('mouseenter', () => !isMobileDevice() && stopAutoplay());
-carouselContainer.addEventListener('mouseleave', () => !isMobileDevice() && startAutoplay());
+function handleDragEnd(e) {
+  if (!isDragging) return;
+  isDragging = false;
+  
+  const diff = currentX - startX;
+  const diffY = Math.abs(currentY - startY);
+  
+  if (Math.abs(diff) > diffY) {
+    const threshold = isMobileDevice() ? 50 : 80;
+    
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
+    } else {
+      updateCarousel();
+    }
+  } else {
+    updateCarousel();
+  }
+  
+  // НЕ запускаем автопрокрутку на мобильных
+  if (activeTag === 'all' && !isMobileDevice()) {
+    startAutoplay();
+  }
+}
+
+// События для мыши
+track.addEventListener('mousedown', handleDragStart);
+track.addEventListener('mousemove', handleDragMove);
+track.addEventListener('mouseup', handleDragEnd);
+track.addEventListener('mouseleave', handleDragEnd);
+
+// События для тачскрина
+track.addEventListener('touchstart', handleDragStart, { passive: true });
+track.addEventListener('touchmove', handleDragMove, { passive: false });
+track.addEventListener('touchend', handleDragEnd);
+
+tags.forEach(tag => {
+  tag.addEventListener('click', (e) => {
+    tags.forEach(t => t.classList.remove('active'));
+    tag.classList.add('active');
+    filterCards(tag.getAttribute('data-tag'));
+  });
+});
+
+prevBtn.addEventListener('click', () => {
+  prevSlide();
+  if (activeTag === 'all' && !isMobileDevice()) {
+    startAutoplay();
+  }
+});
+
+nextBtn.addEventListener('click', () => {
+  nextSlide();
+  if (activeTag === 'all' && !isMobileDevice()) {
+    startAutoplay();
+  }
+});
 
 window.addEventListener('resize', () => {
   updateSlidesPerView();
+  // При изменении размера пересчитываем автопрокрутку
   stopAutoplay();
-  if (!isMobileDevice() && activeTag === 'all') startAutoplay();
+  if (activeTag === 'all' && !isMobileDevice()) {
+    startAutoplay();
+  }
 });
 
-document.addEventListener('visibilitychange', () => {
-  document.hidden || isMobileDevice() ? stopAutoplay() : startAutoplay();
-});
-
-// ===== INIT =====
 cloneCards();
 updateSlidesPerView();
-if (!isMobileDevice()) startAutoplay();
+
+// ГЛАВНОЕ: запускаем автопрокрутку ТОЛЬКО на десктопе
+if (!isMobileDevice()) {
+  startAutoplay();
+}
+
+const carouselContainer = document.querySelector('.carousel-container');
+
+// Остановка при наведении только на десктопе
+carouselContainer.addEventListener('mouseenter', () => {
+  if (!isMobileDevice()) {
+    stopAutoplay();
+  }
+});
