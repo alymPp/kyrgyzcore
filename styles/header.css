@@ -30,7 +30,7 @@ header::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: url("../assets/hero.webp");
+  background-image: url("../assets/hero.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -648,5 +648,6 @@ header {
     width: 150px;
   }
 }
+
 
 
