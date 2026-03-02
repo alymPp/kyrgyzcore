@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kyrgyz Core</title>
+<style>
+  :root{
+    --bg: #f7f3ee;
+    --card: #ffffff;
+    --text: #243043;
+    --muted: #6b7280;
+    --accent: #f36a4a;
+    --shadow: 0 16px 40px rgba(16, 24, 40, 0.12);
+  }
+
+  .tour-operator{
+    background: var(--bg);
+    padding: 72px 18px;
+  }
+
+  .tour-operator__container{
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .tour-operator__header h2{
+    margin: 0 0 34px;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.1;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .tour-operator__grid{
+    display: grid;
+    grid-template-columns: 340px 1fr 360px;
+    gap: 34px;
+    align-items: start;
+  }
+
+  /* LEFT IMAGE */
+  .tour-operator__photo{
+    background: var(--card);
+    border-radius: 18px;
+    padding: 14px;
+    box-shadow: var(--shadow);
+  }
+
+  .tour-operator__photo img{
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+  }
+
+  /* CONTENT */
+  .tour-operator__content{
+    padding-top: 8px;
+    color: var(--text);
+  }
+
+  .tour-operator__content p{
+    margin: 0 0 16px;
+    color: #4b5563;
+    line-height: 1.7;
+    font-size: 15.5px;
+    max-width: 520px;
+  }
+
+  .tour-operator__content h3{
+    margin: 22px 0 14px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  /* BULLETS */
+  .tour-operator__list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 18px;
+    max-width: 520px;
+  }
+
+  .tour-operator__list li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #374151;
+    font-size: 14.5px;
+  }
+
+  .tour-operator__list li::before{
+    content: "";
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border-radius: 999px;
+    background: rgba(243, 106, 74, 0.12);
+    display: inline-block;
+  }
+
+  .tour-operator__list li::after{
+    content: "✓";
+    margin-left: -28px;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 900;
+  }
+
+  /* TESTIMONIAL SLIDER */
+  .tour-operator__testimonial .testimonial-wrapper{
+    background: var(--card);
+    border-radius: 22px;
+    padding: 26px 24px 20px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial__quote{
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 84px;
+    line-height: 1;
+    color: rgba(36, 48, 67, 0.08);
+    user-select: none;
+  }
+
+  /* Slide container */
+  .testimonial__slides{
+    position: relative;
+    min-height: 220px;
+  }
+
+  .testimonial__slide{
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .testimonial__slide.active{
+    opacity: 1;
+    position: relative;
+    pointer-events: auto;
+  }
+
+  .testimonial__text{
+    margin: 0;
+    color: #4b5563;
+    line-height: 1.8;
+    font-size: 14.5px;
+    padding-right: 10px;
+  }
+
+  .testimonial__user{
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+  }
+
+  .testimonial__avatar{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(0,0,0,0.06);
+    flex-shrink: 0;
+  }
+
+  .testimonial__name{
+    font-weight: 800;
+    color: var(--text);
+    font-size: 14px;
+  }
+
+  .testimonial__meta{
+    color: var(--muted);
+    font-size: 12.5px;
+    margin-top: 2px;
+  }
+
+  .testimonial__dots{
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .dot{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(36, 48, 67, 0.22);
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: background 0.3s, width 0.3s;
+  }
+
+  .dot.dot--active{
+    background: var(--accent);
+    width: 20px;
+    border-radius: 4px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1020px){
+    .tour-operator__grid{
+      grid-template-columns: 320px 1fr;
+    }
+    .tour-operator__testimonial{
+      grid-column: 1 / -1;
+    }
+    .testimonial__slides{ min-height: auto; }
+  }
+
+  @media (max-width: 720px){
+    .tour-operator{
+      padding: 56px 16px;
+    }
+    .tour-operator__grid{
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .tour-operator__photo img{
+      height: 320px;
+    }
+    .tour-operator__list{
+      grid-template-columns: 1fr;
+    }
+    .testimonial__slides{ min-height: auto; }
+  }
+</style>
+</head>
+<body>
+
+<section class="tour-operator" id="about">
+  <div class="tour-operator__container">
+
+    <header class="tour-operator__header">
+      <h2>Premium Tours in Kyrgyzstan —<br />with Soul.</h2>
+    </header>
+
+    <div class="tour-operator__grid">
+
+      <!-- LEFT: image card -->
+      <div class="tour-operator__photo">
+        <img
+          src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop"
+          alt="Kyrgyzstan landscape"
+        />
+      </div>
+
+      <!-- MIDDLE: text + bullets -->
+      <div class="tour-operator__content">
+        <p>
+          We bring cruise-level hospitality into the mountains — calm, precise, and deeply
+          respectful. Our team combines Hapag-Lloyd experience with a structured European
+          approach and Princess discipline with Virgin creativity. Together, we create
+          something truly new.
+        </p>
+
+        <p>
+          No noise. No rush. Just real journeys, done properly. Every traveler deserves
+          an adventure that shows the genuine spirit of this extraordinary place.
+          Kyrgyzstan — done right.
+        </p>
+
+        <h3>WHY KYRGYZ CORE?</h3>
+
+        <ul class="tour-operator__list">
+          <li>Quiet Luxury Service</li>
+          <li>Authentic Routes</li>
+          <li>Expert Local Guides</li>
+          <li>Safety-First Mindset</li>
+          <li>Private &amp; Small Group Tours</li>
+          <li>Moments That Stay</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT: testimonial slider -->
+      <aside class="tour-operator__testimonial">
+        <div class="testimonial-wrapper">
+          <div class="testimonial__quote">"</div>
+
+          <div class="testimonial__slides">
+
+            <div class="testimonial__slide active">
+              <p class="testimonial__text">
+                Our trip to Kyrgyzstan was incredible, thanks to Kyrgyz Core and our guide Amir!
+                Kayaking on Issyk-Kul, horseback riding in Chon-Kemin, an eagle hunting show in
+                Ak-Sai Canyon — every moment was unforgettable. I'll recommend them to all my friends!
+              </p>
+              <div class="testimonial__user">
+                <img class="testimonial__avatar"
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256&auto=format&fit=crop"
+                  alt="Lars Andersson" />
+                <div>
+                  <div class="testimonial__name">Lars Andersson</div>
+                  <div class="testimonial__meta">Paris, France</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial__slide">
+              <p class="testimonial__text">
+                The level of service genuinely surprised me — it felt like a luxury cruise, but in
+                the heart of breathtaking mountains. Calm, attentive, and deeply professional.
+                I've never felt so well taken care of on an adventure trip.
+              </p>
+              <div class="testimonial__user">
+                <img class="testimonial__avatar"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256&auto=format&fit=crop"
+                  alt="Monika Bauer" />
+                <div>
+                  <div class="testimonial__name">Monika Bauer</div>
+                  <div class="testimonial__meta">Munich, Germany</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial__slide">
+              <p class="testimonial__text">
+                No tourist traps, no rushing — just carefully chosen places and genuine warmth.
+                The Song-Köl lake sunrise was worth every mile. Kyrgyz Core clearly loves this
+                country, and it shows in every detail of the journey.
+              </p>
+              <div class="testimonial__user">
+                <img class="testimonial__avatar"
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=256&auto=format&fit=crop"
+                  alt="James Whitmore" />
+                <div>
+                  <div class="testimonial__name">James Whitmore</div>
+                  <div class="testimonial__meta">London, UK</div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /slides -->
+
+          <div class="testimonial__dots" id="dots" aria-hidden="true"></div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  const slides = document.querySelectorAll('.testimonial__slide');
+  const dotsContainer = document.getElementById('dots');
+  const total = slides.length;
+  let current = 0;
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'dot' + (i === 0 ? ' dot--active' : '');
+    btn.setAttribute('aria-label', 'Slide ' + (i + 1));
+    btn.addEventListener('click', () => { goTo(i); resetTimer(); });
+    dotsContainer.appendChild(btn);
+  });
+
+  const dots = dotsContainer.querySelectorAll('.dot');
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('dot--active');
+    current = (index + total) % total;
+    slides[current].classList.add('active');
+    dots[current].classList.add('dot--active');
+  }
+
+  let timer = setInterval(() => goTo(current + 1), 5000);
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+})();
+</script>
+
+</body>
+</html>

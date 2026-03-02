@@ -9,7 +9,6 @@
     }
 
     .main-card {
-      background: white;
       border-radius: 20px;
       overflow: hidden;
       display: flex;
@@ -60,6 +59,7 @@
     }
 
     .small-card {
+      border-radius: 30px;
       background: white;
       overflow: hidden;
       display: flex;
@@ -101,3 +101,5 @@
       .main-card {
         order: -1;
       }
+
+    }
