@@ -357,6 +357,7 @@ nav {
 /* Very small screens */
 @media (width < 530px) {
   .search-bar {
-    width: 200px;
+    width: 160px;
   }
+
 }
