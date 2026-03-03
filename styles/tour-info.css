@@ -1381,6 +1381,20 @@
     font-size: 32px;
     text-align: start;
   }
+
+select {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  background-color: #ffffff;   /* белый фон */
+  color: #000000;              /* чёрный текст */
+  appearance: none;            /* убирает дефолт */
+  -webkit-appearance: none;    /* iOS */
+  -moz-appearance: none;       /* Firefox */
+  transition: border-color var(--transition-base);
+}
   
   .hero-meta {
     flex-direction: column;
@@ -1414,4 +1428,5 @@
  }
 
 }
+
 
