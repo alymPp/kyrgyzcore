@@ -422,7 +422,7 @@
 
           <div class="form-group">
             <label>Full Name *</label>
-            <input type="text" name="name" placeholder="John Doe" required>
+            <input type="text" name="name" placeholder="John Wick" required>
           </div>
 
           <div class="form-group">
@@ -431,20 +431,64 @@
           </div>
 
           <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" name="phone" placeholder="+996 XXX XXX XXX">
+            <label>WhatsApp Number</label>
+            <input type="tel" name="phone" placeholder="+1 XXX XXX XXX">
           </div>
 
-          <div class="form-group">
-            <label>Preferred Date</label>
-            <input type="date" name="date">
-          </div>
+         <div class="form-group">
+              <label>Preferred Date *</label>
 
+              <div style="display:flex; gap:10px;">
+
+                <!-- Day -->
+                <select name="day" required>
+                  <option value="">Day</option>
+                  <script>
+                    for (let i = 1; i <= 31; i++) {
+                      document.write(`<option value="${i}">${i}</option>`);
+                    }
+                  </script>
+                </select>
+
+                <!-- Month -->
+                <select name="month" required>
+                  <option value="">Month</option>
+                  <option>January</option>
+                  <option>February</option>
+                  <option>March</option>
+                  <option>April</option>
+                  <option>May</option>
+                  <option>June</option>
+                  <option>July</option>
+                  <option>August</option>
+                  <option>September</option>
+                  <option>October</option>
+                  <option>November</option>
+                  <option>December</option>
+                </select>
+
+                <!-- Year -->
+                <select name="2026" required>
+                  <option value="">2026</option>
+                  <option>2026</option>
+                </select>
+
+              </div>
+            </div>
           <div class="form-group">
             <label>Additional Message</label>
             <textarea 
               name="message"
-              style="width:100%; padding:12px; border:1px solid #ddd; border-radius:6px; font-family:inherit; resize:vertical; min-height:80px;"
+              style="
+              width:100%;
+              padding:12px;
+              border:1px solid #ddd;
+              border-radius:6px;
+              font-family:inherit;
+              resize:vertical;
+              min-height:80px;
+              font-size:16px;
+            "
               placeholder="Any special requests or questions...">
             </textarea>
           </div>
@@ -539,3 +583,4 @@
 </body>
 
 </html>
+
