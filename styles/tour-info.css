@@ -756,7 +756,7 @@
 .difficulty-section {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 25px;
+  padding: 20px;
   border-radius: var(--radius-xl);
   margin-bottom: var(--spacing-lg);
 }
@@ -1213,6 +1213,10 @@
     flex-wrap: wrap;
     gap: 10px;
   }
+      
+.difficulty-bar {
+  width: 20px;
+}
   
   .nav-btn {
     padding: 10px 16px;
@@ -1407,4 +1411,5 @@
  .itinerary-description{
   margin: 0;
  }
+
 }
