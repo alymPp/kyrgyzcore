@@ -625,6 +625,32 @@
   opacity: .85;
 }
 
+
+/* Carousel base */
+.carousel {
+  position: relative;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Track should be horizontal */
+.carousel-track {
+  display: flex;
+  gap: 16px; /* можешь убрать если уже есть */
+  will-change: transform;
+}
+
+/* Hide scrollbar if вдруг появится */
+.carousel-viewport::-webkit-scrollbar {
+  display: none;
+}
+.carousel-viewport {
+  scrollbar-width: none;
+}
+
 /* responsive */
 @media (max-width: 900px){
   .missionX__grid{
@@ -639,4 +665,5 @@
   .missionX__title{
     font-size: 26px;
   }
+
 }
