@@ -188,7 +188,7 @@ header {
   }
 
   header{
-    margin-top: 5rem;
+    margin-top: 4rem;
     padding-inline: unset;
   }
   header::before{
@@ -271,6 +271,7 @@ header {
 
  
 }
+
 
 
 
