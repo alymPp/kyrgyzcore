@@ -368,6 +368,16 @@
   max-width: 26ch;
 }
 
+.carousel-viewport{
+  overflow: hidden;
+  border-radius: 16px;
+  touch-action: pan-y; /* свайп по X будет ок */
+}
+
+.carousel-track{
+  user-select: none;
+}
+
 /* controls */
 .carousel-ui{
   display: flex;
@@ -389,7 +399,7 @@
 }
 
 .c-progress{
-  height: 10px;
+  height: 5px;
   flex: 1;
   border-radius: 999px;
   border: 1px solid var(--line);
@@ -400,7 +410,7 @@
 .c-bar{
   height: 100%;
   width: 0%;
-  background: #111;
+  background: var(--primary-color-dark);
   border-radius: 999px;
   transition: width 3000ms linear;
 }
@@ -625,32 +635,6 @@
   opacity: .85;
 }
 
-
-/* Carousel base */
-.carousel {
-  position: relative;
-}
-
-.carousel-viewport {
-  overflow: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Track should be horizontal */
-.carousel-track {
-  display: flex;
-  gap: 16px; /* можешь убрать если уже есть */
-  will-change: transform;
-}
-
-/* Hide scrollbar if вдруг появится */
-.carousel-viewport::-webkit-scrollbar {
-  display: none;
-}
-.carousel-viewport {
-  scrollbar-width: none;
-}
-
 /* responsive */
 @media (max-width: 900px){
   .missionX__grid{
@@ -665,5 +649,4 @@
   .missionX__title{
     font-size: 26px;
   }
-
 }
