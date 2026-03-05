@@ -407,80 +407,93 @@
 <!-- ====== JOURNEY + MISSION (Apple-like minimal) ====== -->
 <!-- ====== JOURNEY + MISSION (Apple-like minimal) ====== -->
 <section class="about-blocks" aria-label="Our journey and mission">
-
-  <!-- OUR PATH IN PHOTOS -->
-  <div class="section-head">
-    <div>
-      <div class="kicker">OUR PATH IN PHOTOS</div>
-      <h2 class="h2">Moments that shaped our standard</h2>
-    </div>
-
-    <p class="lead">
-      Not stock stories. Real places, real service, real lessons — from the mountains of Central Asia to premium cruise ships.
-    </p>
+<div class="section-head">
+  <div>
+    <div class="kicker">OUR PATH IN PHOTOS</div>
+    <h2 class="h2">Moments that shaped our standard</h2>
   </div>
 
-  <div class="carousel" data-carousel="journey" data-speed="18" aria-roledescription="carousel">
-    <div class="carousel-viewport">
-      <div class="carousel-track">
+  <p class="lead">
+    Not stock stories. Real places, real service, real lessons — from the mountains of Central Asia to premium cruise ships.
+  </p>
+</div>
 
-        <!-- Slide 1 -->
-        <article class="photo-card" aria-label="Balanced Journey">
-          <img src="./assets/sultan-Dzhunushaliev.jpg" alt="Balanced journey in Kyrgyzstan mountains" loading="lazy">
-          <div class="photo-overlay">
-            <div class="photo-title"> Sultan working by Princess Cruises </div>
-            <div class="photo-sub">Energy, creativity, adventure</div>
-          </div>
-        </article>
+<div class="carousel" data-carousel="journey" data-autoplay="4500" aria-roledescription="carousel">
+  <div class="carousel-viewport">
+    <div class="carousel-track">
 
-        <!-- Slide 2 -->
-        <article class="photo-card" aria-label="Relaxed Journey">
-          <img src="./assets/Alym-in-kyrchyn.jpg" alt="Alym in Kyrchyn 2026" loading="lazy">
-          <div class="photo-overlay">
-            <div class="photo-title">Alym discovering Kyrchyn</div>
-            <div class="photo-sub"> nature, culture, adventure</div>
-          </div>
-        </article>
+      <!-- Slide 1 -->
+      <article class="photo-card" aria-label="Balanced Journey">
+        <img src="./assets/sultan-Dzhunushaliev.jpg" alt="Balanced journey in Kyrgyzstan mountains" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-title">Sultan working by Princess Cruises</div>
+          <div class="photo-sub">Energy, creativity, adventure</div>
+        </div>
+      </article>
 
-        <!-- Slide 3 -->
-        <article class="photo-card" aria-label="Active Journey">
-          <img src="./assets/waiter-in-hapag-lloyd.jpg" alt="Active journey with horseback adventure" loading="lazy">
-          <div class="photo-overlay">
-            <div class="photo-title"> Working by Hapap Lloyd </div>
-            <div class="photo-sub">Smile, joy,professionalism</div>
-          </div>
-        </article>
+      <!-- Slide 2 -->
+      <article class="photo-card" aria-label="Relaxed Journey">
+        <img src="./assets/Alym-in-kyrchyn.jpg" alt="Alym in Kyrchyn 2026" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-title">Alym discovering Kyrchyn</div>
+          <div class="photo-sub">Nature, culture, adventure</div>
+        </div>
+      </article>
 
-        <!-- Slide 4 -->
-        <article class="photo-card" aria-label="Premium Service">
-          <img src="./assets/Sultan-Dzhunushaliev-in-Japan.jpg" alt="Premium hospitality and service standards" loading="lazy">
-          <div class="photo-overlay">
-            <div class="photo-title">Sultan's Experince in Japan  </div>
-            <div class="photo-sub">omotenashi, precision, cultural discipline</div>
-          </div>
-        </article>
+      <!-- Slide 3 -->
+      <article class="photo-card" aria-label="Active Journey">
+        <img src="./assets/waiter-in-hapag-lloyd.jpg" alt="Active journey with hospitality experience" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-title">Working by Hapag-Lloyd</div>
+          <div class="photo-sub">Smile, joy, professionalism</div>
+        </div>
+      </article>
 
-        <!-- Slide 5 -->
-        <article class="photo-card" aria-label="Culture & Soul">
-          <img src="./assets/pool-bar-happag-lloyd.jpg" alt="Authentic culture experience in Kyrgyzstan" loading="lazy">
-          <div class="photo-overlay">
-            <div class="photo-title"> Working in team by Hapag Lloyd </div>
-            <div class="photo-sub"> team management, trust, support </div>
-          </div>
-        </article>
+      <!-- Slide 4 -->
+      <article class="photo-card" aria-label="Premium Service">
+        <img src="./assets/Sultan-Dzhunushaliev-in-Japan.jpg" alt="Experience in Japan" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-title">Sultan’s experience in Japan</div>
+          <div class="photo-sub">Omotenashi, precision, cultural discipline</div>
+        </div>
+      </article>
 
-        <!-- Slide 6 -->
-        <article class="photo-card" aria-label="Trust & Safety">
-          <img src="./assets/hapag-lloyd-ships.jpg" alt="Safety-first organization for trips" loading="lazy">
-          <div class="photo-overlay">
-            <div class="photo-title">TRUST & SAFETY</div>
-            <div class="photo-sub">Structure you can rely on</div>
-          </div>
-        </article>
+      <!-- Slide 5 -->
+      <article class="photo-card" aria-label="Culture & Team">
+        <img src="./assets/pool-bar-happag-lloyd.jpg" alt="Teamwork and service standards" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-title">Working in team by Hapag-Lloyd</div>
+          <div class="photo-sub">Team management, trust, support</div>
+        </div>
+      </article>
 
-      </div>
+      <!-- Slide 6 -->
+      <article class="photo-card" aria-label="Trust & Safety">
+        <img src="./assets/hapag-lloyd-ships.jpg" alt="Trust and safety structure" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-title">TRUST & SAFETY</div>
+          <div class="photo-sub">Structure you can rely on</div>
+        </div>
+      </article>
+
     </div>
   </div>
+
+  <!-- CONTROLS (inside carousel, below viewport) -->
+  <div class="carousel-ui" aria-label="Carousel controls">
+    <button class="c-btn" type="button" data-prev aria-label="Previous">
+      <i class="ri-arrow-left-s-line"></i>
+    </button>
+
+    <div class="c-progress" aria-hidden="true">
+      <div class="c-bar"></div>
+    </div>
+
+    <button class="c-btn" type="button" data-next aria-label="Next">
+      <i class="ri-arrow-right-s-line"></i>
+    </button>
+  </div>
+</div>
 
   <!-- OUR MISSION -->
 <!-- ===== OUR MISSION (Luxury / Editorial) ===== -->
@@ -631,4 +644,3 @@
   </script>
 </body>
 </html>
-
