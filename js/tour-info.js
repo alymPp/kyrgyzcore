@@ -189,7 +189,7 @@ const itineraryData = {
       "../assets/kattama-view.jpg",
       "../assets/mountain-view-bishkek.jpg",
       "../assets/mountain-view-bishkek-pool.jpg",
-      "../assets/manas-international-airport.jpg"
+      "../assets/manas-international-airport.jpeg"
     ]
   }
 };
@@ -516,4 +516,5 @@ document.querySelectorAll('a[href="#booking"]').forEach(link => {
     e.preventDefault();
     document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
   });
+
 });
