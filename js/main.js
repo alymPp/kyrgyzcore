@@ -1,76 +1,42 @@
-const menuBtn = document.getElementById("menu-btn");
-const navLinks = document.getElementById("nav-links");
-const menuBtnIcon = menuBtn.querySelector("i");
+function updateMenuTop() {
+  const nav = document.querySelector('nav');
+  const navLinks = document.getElementById('nav-links');
+  if (!navLinks) return;
+  
+  const navBottom = nav.getBoundingClientRect().bottom;
+  navLinks.style.top = navBottom + 'px';
+  navLinks.style.height = `calc(100vh - ${navBottom}px)`;
+}
 
-menuBtn.addEventListener("click", (e) => {
-  navLinks.classList.toggle("open");
-
-  const isOpen = navLinks.classList.contains("open");
-  menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+document.getElementById('menu-btn').addEventListener('click', () => {
+  updateMenuTop();
+  const navLinks = document.getElementById('nav-links');
+  const icon = document.querySelector('#menu-btn i');
+  
+  navLinks.classList.toggle('open');
+  
+  // Переключаем иконку
+  if (navLinks.classList.contains('open')) {
+    icon.classList.remove('ri-menu-3-fill');
+    icon.classList.add('ri-close-line');
+  } else {
+    icon.classList.remove('ri-close-line');
+    icon.classList.add('ri-menu-3-fill');
+  }
 });
 
-navLinks.addEventListener("click", (e) => {
-  navLinks.classList.remove("open");
-  menuBtnIcon.setAttribute("class", "ri-menu-line");
+window.addEventListener('scroll', () => {
+  if (document.getElementById('nav-links').classList.contains('open')) {
+    updateMenuTop();
+  }
 });
+
 
 const scrollRevealOption = {
   origin: "bottom",
   distance: "50px",
   duration: 1000,
 };
-
-ScrollReveal().reveal(".header__image img", {
-  ...scrollRevealOption,
-  origin: "right",
-});
-ScrollReveal().reveal(".header__content p", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-ScrollReveal().reveal(".header__content h1", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
-ScrollReveal().reveal(".header__btns", {
-  ...scrollRevealOption,
-  delay: 1500,
-});
-
-
-ScrollReveal().reveal(".showcase__image img", {
-  ...scrollRevealOption,
-  origin: "left",
-});
-ScrollReveal().reveal(".showcase__content h4", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-ScrollReveal().reveal(".showcase__content p", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
-ScrollReveal().reveal(".showcase__btn", {
-  ...scrollRevealOption,
-  delay: 1500,
-});
-
-ScrollReveal().reveal(".banner__card", {
-  ...scrollRevealOption,
-  interval: 500,
-});
-
-ScrollReveal().reveal(".discover__card", {
-  ...scrollRevealOption,
-  interval: 500,
-});
-
-const swiper = new Swiper(".swiper", {
-  slidesPerView: 3,
-  spaceBetween: 20,
-  loop: true,
-});
-
 
   const dropdown = document.querySelector(".dropdown");
   const toggle = dropdown.querySelector(".dropdown__toggle");
@@ -85,4 +51,29 @@ const swiper = new Swiper(".swiper", {
     }
   });
 
-  
+
+function openModal(tourName) {
+  document.querySelector('input[name="tour_name"]').value = tourName || '';
+  document.getElementById("bookingModal").classList.add('active');
+  document.body.style.overflow = 'hidden';
+  document.getElementById("waWidget").style.display = 'none'; // скрыть WA
+}
+
+function closeModal() {
+  document.getElementById("bookingModal").classList.remove('active');
+  document.body.style.overflow = '';
+  document.getElementById("waWidget").style.display = 'flex'; // вернуть WA
+}
+
+
+function toggleWA() {
+  document.getElementById('waPopup').classList.toggle('open');
+}
+
+// Закрыть при клике вне виджета
+document.addEventListener('click', e => {
+  const widget = document.getElementById('waWidget');
+  if (!widget.contains(e.target)) {
+    document.getElementById('waPopup').classList.remove('open');
+  }
+});

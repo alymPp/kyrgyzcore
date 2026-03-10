@@ -8,11 +8,9 @@ const places = [
   { name: "Dungan Mosque", url: "./dungan-mosque-karakol.html" },
   { name: "The Dead Lake", url: "./the-dead-lake.html" },
   { name: "Orthodox Church", url: "https://kyrgyzcore.com/orthodox-church.html" },
-  { name: "Supara Chunkurchak", url: "https://kyrgyzcore.com/supara-chunkurchak.html" },  
-  { name: "Rukh Ordo", url: "https://kyrgyzcore.com/rukh-ordo.html" },
+  { name: "Supara Chunkurchak", url: "https://kyrgyzcore.com/supara-chunkurchak.html" },
   { name: "Balykchy", url: "https://kyrgyzcore.com/balykchy.html" },
   { name: "Semenovskoe Gorge", url: "./Semenov-gorge.html" },
-  { name: "Bosteri Resort", url: "https://kyrgyzcore.com/bosteri.html" },
   { name: "Aska Thermal Spa", url: "https://kyrgyzcore.com/aska-thermal-spa.html" },
 ];
 

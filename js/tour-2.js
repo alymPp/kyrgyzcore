@@ -67,7 +67,7 @@ const itineraryData = {
       "../assets/burana-chuy-silk-road.jpg",
       "../assets/chon-kemin.jpg",
       "../assets/issyk-kul-lake.jpg",
-      "../assets/ruh-ordo-cholpon-ata.jpg",  
+      "../assets/ruh-ordo-cholpon-ata.jpg",
     ]
   },
 
@@ -75,7 +75,7 @@ const itineraryData = {
     title: "Cholpon-Ata → Boat Ride → Semenov Gorge → Karakol City Sights",
     location: "Issyk-Kul / Semenov / Karakol",
     story:
-      "Lake morning with a boat ride, then fresh alpine air in Semenov Gorge — finishing with Karakol’s famous wooden landmarks.",
+      "Lake morning with a boat ride, then fresh alpine air in Semenov Gorge — finishing with Karakol's famous wooden landmarks.",
     description: `
       <ul style="list-style: none; padding: 0;">
         <li style="margin-bottom: 12px;"><strong>09:30</strong> — Departure → boat ride</li>
@@ -144,7 +144,7 @@ const itineraryData = {
     title: "Altyn-Arashan → Jeti-Oguz → Skazka Canyon → Bishkek",
     location: "Jeti-Oguz / South Shore Issyk-Kul / Bishkek",
     story:
-      "A strong финал: red rock landscapes at Jeti-Oguz, surreal shapes in Skazka Canyon — and the return to Bishkek.",
+      "A strong final: red rock landscapes at Jeti-Oguz, surreal shapes in Skazka Canyon — and the return to Bishkek.",
     description: `
       <ul style="list-style: none; padding: 0;">
         <li style="margin-bottom: 12px;"><strong>08:30</strong> — Departure from Altyn-Arashan</li>
@@ -174,13 +174,44 @@ const itineraryData = {
   }
 };
 
+// ── WA Widget helper ─────────────────────────────────
+function hideWA() {
+  const wa = document.getElementById('waWidget');
+  if (wa) wa.style.display = 'none';
+}
+function showWA() {
+  const wa = document.getElementById('waWidget');
+  if (wa) wa.style.display = 'flex';
+}
 
+// ── Modal ────────────────────────────────────────────
+function openModal(tourName) {
+  document.querySelector('input[name="tour_name"]').value = tourName || '';
+  document.getElementById('bookingModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  hideWA();
+}
 
-// Display accordion itinerary as fallback
+function closeModal() {
+  document.getElementById('bookingModal').classList.remove('active');
+  document.body.style.overflow = '';
+  showWA();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('bookingModal');
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+  }
+});
+
+// ── Accordion ────────────────────────────────────────
 function displayItinerary() {
   const display = document.getElementById('itinerary-display');
   let html = '<div class="accordion-container">';
-  
+
   for (let day in itineraryData) {
     const data = itineraryData[day];
     html += `
@@ -194,26 +225,19 @@ function displayItinerary() {
         </button>
         <div class="accordion-content">
           <div class="accordion-inner">
-            <!-- Images -->
             <div class="accordion-images">
               <img src="${data.images[0]}" alt="Day ${day} - Image 1">
               <img src="${data.images[1]}" alt="Day ${day} - Image 2">
             </div>
-            
-            <!-- Story -->
             <div class="accordion-story">
               <p>${data.story}</p>
             </div>
-            
-            <!-- Highlights -->
             <div class="accordion-highlights">
               <h4><i class="ri-star-fill"></i> Highlights</h4>
               <ul>
                 ${data.highlights.map(h => `<li><i class="ri-check-line"></i> ${h}</li>`).join('')}
               </ul>
             </div>
-            
-            <!-- View Full Day Button -->
             <button class="btn view-full-day-btn" onclick="openDayViewer(${day})">
               <i class="ri-eye-line"></i> View Full Day Details
             </button>
@@ -222,46 +246,34 @@ function displayItinerary() {
       </div>
     `;
   }
-  
+
   html += '</div>';
   display.innerHTML = html;
 }
 
-// Toggle accordion
 function toggleAccordion(day) {
   const items = document.querySelectorAll('.accordion-item');
   const currentItem = items[day - 1];
   const wasActive = currentItem.classList.contains('active');
-  
-  // Close all
   items.forEach(item => item.classList.remove('active'));
-  
-  // Open current if it wasn't active
-  if (!wasActive) {
-    currentItem.classList.add('active');
-  }
+  if (!wasActive) currentItem.classList.add('active');
 }
 
-// Day button click handlers
 document.querySelectorAll('.day-button').forEach(btn => {
   btn.addEventListener('click', () => {
-    // Remove active from all
     document.querySelectorAll('.day-button').forEach(b => b.classList.remove('active'));
-    // Add active to clicked
     btn.classList.add('active');
-    
-    const day = parseInt(btn.dataset.day);
-    openDayViewer(day);
+    openDayViewer(parseInt(btn.dataset.day));
   });
 });
 
-// Fullscreen Day Viewer
-const dayViewer = document.getElementById('dayViewer');
-const viewerBg = document.getElementById('viewerBg');
+// ── Day Viewer ───────────────────────────────────────
+const dayViewer    = document.getElementById('dayViewer');
+const viewerBg     = document.getElementById('viewerBg');
 const viewerContent = document.getElementById('viewerContent');
 const closeViewerBtn = document.getElementById('closeViewerBtn');
-const prevDayBtn = document.getElementById('prevDayBtn');
-const nextDayBtn = document.getElementById('nextDayBtn');
+const prevDayBtn   = document.getElementById('prevDayBtn');
+const nextDayBtn   = document.getElementById('nextDayBtn');
 let currentViewerDay = 1;
 
 function openDayViewer(day) {
@@ -269,29 +281,27 @@ function openDayViewer(day) {
   renderDayViewer(day);
   dayViewer.classList.add('active');
   document.body.style.overflow = 'hidden';
+  hideWA(); // ← скрыть WA
 }
 
 function closeDayViewer() {
   dayViewer.classList.remove('active');
   document.body.style.overflow = '';
+  showWA(); // ← вернуть WA
 }
 
 function renderDayViewer(day) {
   const data = itineraryData[day];
-  
-  // Set background
+
   viewerBg.style.backgroundImage = `url(${data.images[0]})`;
-  
-  // Calculate progress percentage
+
   const progressPercent = (day / 5) * 100;
-  
-  // Determine badges based on day characteristics
+
   const badges = [];
-  if (data.difficulty.physical >= 3) badges.push({ icon: '🏔️', text: 'Mountain Explorer' });
-  if (data.difficulty.cultural >= 4) badges.push({ icon: '🎭', text: 'Culture Enthusiast' });
+  if (data.difficulty.physical >= 3)    badges.push({ icon: '🏔️', text: 'Mountain Explorer' });
+  if (data.difficulty.cultural >= 4)    badges.push({ icon: '🎭', text: 'Culture Enthusiast' });
   if (data.difficulty.photography >= 4) badges.push({ icon: '📸', text: 'Photography Paradise' });
-  
-  // Render content
+
   viewerContent.innerHTML = `
     <div class="progress-section">
       <div class="progress-bar-container">
@@ -310,7 +320,7 @@ function renderDayViewer(day) {
         `).join('')}
       </div>
     ` : ''}
-    
+
     <div class="viewer-header">
       <div class="viewer-day-badge">Day ${day} of 5</div>
       <h1 class="viewer-title">${data.title}</h1>
@@ -329,7 +339,6 @@ function renderDayViewer(day) {
     ` : ''}
 
     <div class="viewer-stats">
-      
       <div class="viewer-stat">
         <i class="ri-time-line"></i>
         <div>
@@ -344,7 +353,7 @@ function renderDayViewer(day) {
           <div style="font-weight: 600;">${data.stats.accommodation}</div>
         </div>
       </div>
-    </div>  
+    </div>
 
     ${data.difficulty ? `
       <div class="difficulty-section">
@@ -377,7 +386,6 @@ function renderDayViewer(day) {
       <div style="font-size: 16px; line-height: 1.8; color: #333;">
         ${data.description}
       </div>
-      
       <h4 style="font-size: 20px; margin: 30px 0 20px 0; color: #1a1a1a;">
         <i class="ri-star-fill" style="color: #FDB913;"></i> Highlights
       </h4>
@@ -399,52 +407,37 @@ function renderDayViewer(day) {
     </div>
   `;
 
-  // Update navigation buttons
   prevDayBtn.disabled = day === 1;
   nextDayBtn.disabled = day === 5;
-
-  // Scroll to top
   dayViewer.scrollTop = 0;
 }
 
-// Navigation handlers
 closeViewerBtn.addEventListener('click', closeDayViewer);
 
 prevDayBtn.addEventListener('click', () => {
-  if (currentViewerDay > 1) {
-    openDayViewer(currentViewerDay - 1);
-  }
+  if (currentViewerDay > 1) openDayViewer(currentViewerDay - 1);
 });
 
 nextDayBtn.addEventListener('click', () => {
-  if (currentViewerDay < 5) {
-    openDayViewer(currentViewerDay + 1);
-  }
+  if (currentViewerDay < 5) openDayViewer(currentViewerDay + 1);
 });
 
-// Keyboard navigation
 document.addEventListener('keydown', (e) => {
   if (!dayViewer.classList.contains('active')) return;
-  
-  if (e.key === 'Escape') {
-    closeDayViewer();
-  } else if (e.key === 'ArrowLeft' && currentViewerDay > 1) {
-    openDayViewer(currentViewerDay - 1);
-  } else if (e.key === 'ArrowRight' && currentViewerDay < 5) {
-    openDayViewer(currentViewerDay + 1);
-  }
+  if (e.key === 'Escape')                              closeDayViewer();
+  else if (e.key === 'ArrowLeft'  && currentViewerDay > 1) openDayViewer(currentViewerDay - 1);
+  else if (e.key === 'ArrowRight' && currentViewerDay < 5) openDayViewer(currentViewerDay + 1);
 });
 
-// Initialize accordion display
+// ── Init ─────────────────────────────────────────────
 displayItinerary();
 
-// View toggle functionality
-const viewToggle = document.getElementById('viewToggle');
+// View toggle
+const viewToggle     = document.getElementById('viewToggle');
 const interactiveView = document.getElementById('interactive-view');
-const fullView = document.getElementById('full-view');
+const fullView       = document.getElementById('full-view');
 let isFullView = false;
 
-// Generate full itinerary HTML
 function generateFullView() {
   let html = '';
   for (let day = 1; day <= 5; day++) {
@@ -466,7 +459,6 @@ generateFullView();
 
 viewToggle.addEventListener('click', () => {
   isFullView = !isFullView;
-  
   if (isFullView) {
     interactiveView.style.display = 'none';
     fullView.style.display = 'block';
@@ -483,12 +475,8 @@ document.querySelectorAll('.faq-question').forEach(question => {
   question.addEventListener('click', () => {
     const item = question.parentElement;
     const wasActive = item.classList.contains('active');
-    
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-    
-    if (!wasActive) {
-      item.classList.add('active');
-    }
+    if (!wasActive) item.classList.add('active');
   });
 });
 
