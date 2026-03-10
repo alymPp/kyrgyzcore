@@ -197,6 +197,14 @@ aside {
 
 /* Responsive */
 @media (max-width: 768px) {
+  
+.hero h1 {
+  line-height: 26px;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
     .availability-section {
         padding: 1.5rem;
         border-radius: 12px;
@@ -270,4 +278,5 @@ aside {
     .section-title {
         font-size: 1.25rem;
     }
+
 }
