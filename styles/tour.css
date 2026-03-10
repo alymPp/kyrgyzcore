@@ -43,7 +43,7 @@
 .card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+  background:linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.6) 100%);
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -262,7 +262,7 @@
   /* ─── Новая цена ─── */
   .new-price {
     line-height: 22px;
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 800;
     color: var(--primary-color-dark);
   }
@@ -270,7 +270,7 @@
   /* ─── Бейдж скидки ─── */
   .discount-badge {
     position: absolute;
-    top: -15px;
+    top: -18px;
     right: -10px;
     background: linear-gradient(135deg, #ff5f6d, #ffb347);
     color: white;
@@ -288,8 +288,8 @@
 
   @keyframes floatPulse {
     0%   { transform: translateY(0px)  scale(1);    box-shadow: 0 4px 12px rgba(255,95,109,0.45); }
-    30%  { transform: translateY(-6px) scale(1.07); box-shadow: 0 10px 20px rgba(255,95,109,0.3); }
-    60%  { transform: translateY(-4px) scale(1.04); box-shadow: 0 8px 16px rgba(255,95,109,0.35); }
+    30%  { transform: translateY(-3px) scale(1.07); box-shadow: 0 10px 20px rgba(255,95,109,0.3); }
+    60%  { transform: translateY(-2px) scale(1.04); box-shadow: 0 8px 16px rgba(255,95,109,0.35); }
     100% { transform: translateY(0px)  scale(1);    box-shadow: 0 4px 12px rgba(255,95,109,0.45); }
   }
 @media (max-width: 900px) {

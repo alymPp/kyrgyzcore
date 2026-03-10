@@ -43,14 +43,17 @@ body {
 
 .hero__content {
   position: absolute;
-  top: 20px;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* по центру вертикально */
+  align-items: flex-start;  /* по левому краю горизонтально */
+  padding: 0 24px;
+  max-width: 1072px;
+  width: 100%;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  max-width: 1072px;
-  padding: 0 24px;
 }
-
 .hero__tag {
   display: inline-block;
   font-size: 11px;
@@ -296,7 +299,7 @@ body {
 /* ── SIDEBAR ── */
 .sidebar {
   position: sticky;
-  top: 20px;
+  top: 60px;
 }
 
 .sidebar-card {

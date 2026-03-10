@@ -35,7 +35,7 @@ footer {
 
 .footer__socials a {
   display: inline-block;
-  padding: 7px 10px;
+  padding: 5px 7px;
   font-size: 1.25rem;
   color: var(--white);
   background-color: var(--white);
@@ -69,10 +69,11 @@ footer {
   align-items: center;
   gap: 10px;
   color: var(--dark-white);
+  transition: all 0.3s;
 }
 
 .footer__links a:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   color: var(--white);
 }
 
@@ -82,7 +83,6 @@ footer {
 
 .footer__col form {
   display: grid;
-  gap: 1rem;
 }
 
 .footer__col input {
@@ -134,4 +134,86 @@ footer {
   }
 }
 
+/* ── Footer contact form ────────────────────────────── */
+.footer__contact-form {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin-top: -60px; /* выезжает вверх над футером */
+  align-self: start;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
 
+.footer__contact-form h4 {
+  color: var(--text-dark) !important;
+  margin-bottom: 1.2rem !important;
+  font-size: 1.3rem !important;
+}
+
+.footer__contact-form input,
+.footer__contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  color: #1a1a1a;
+  background: #fff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.footer__contact-form input:focus,
+.footer__contact-form textarea:focus {
+  border-color: #e05c2e;
+}
+
+.footer__contact-form input::placeholder,
+.footer__contact-form textarea::placeholder {
+  color: #bbb;
+}
+
+.footer__contact-form textarea {
+  min-height: 50px;
+  resize: none;
+}
+
+.footer-send-btn {
+  width: 100%;
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 13px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.footer-send-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Grid с 5 колонками на десктопе */
+@media (width > 768px) {
+  .footer__container {
+    grid-template-columns: 1.4fr 1.8fr 1fr 1fr !important;
+    align-items: start;
+  }
+
+  .footer__col:last-child {
+    grid-area: unset;
+  }
+}
+
+
+.footer__contact-form input::placeholder,
+.footer__contact-form textarea::placeholder {
+  color: #3d3d3d; /* ← меняй на любой цвет */
+}
