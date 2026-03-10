@@ -27,7 +27,7 @@ h1 span {
 header{
   position: relative;
   max-width: 1200px;
-  margin: 5rem auto 0;
+  margin: 0 auto;
   padding-inline: 1rem;
 }
 
@@ -196,7 +196,6 @@ header{
   }
 
   header{
-    margin-top: 5rem;
     padding-inline: unset;
   }
   header::before{
@@ -279,6 +278,7 @@ header{
 
  
 }
+
 
 
 
