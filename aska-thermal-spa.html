@@ -57,50 +57,76 @@
   <meta itemprop="description" content="Premium tours in Kyrgyzstan">
   <meta itemprop="url" content="https://kyrgyzcore.com">
 </div>
-
-<nav class="nav" itemscope itemtype="https://schema.org/SiteNavigationElement">
-  <div class="navRightSide">
-
-    <div class="nav__header">
-      <div class="nav__logo">
-        <a href="./index.html"><img class="logo" src="./assets/logo.svg" alt="Nomad logo"></a>
-      </div>
-
-      <div class="search-wrapper-mbl">
-        <div class="search-bar">
-          <input type="text" placeholder="Search for a place, city, or destination..." autocomplete="off">
-          <img src="./assets/Loop.svg" alt="Search">
-          <ul class="suggestions"></ul>
-        </div>
-      </div>
-
-      <div class="nav__menu__btn" id="menu-btn">
-        <i class="ri-menu-3-fill" style="color:black"></i>
-      </div>
+<div class="top-banner">
+  <div class="top-banner__container">
+    <div class="top-banner__contacts">
+      <a href="tel:+996500969212" class="top-banner__item">
+        <i class="ri-phone-fill"></i>+996 500 969 212
+      </a>
+      <a href="mailto:kyrgyzcore@gmail.com" class="top-banner__item">
+        <i class="ri-mail-line"></i>kyrgyzcore@gmail.com
+      </a>
+      <a href="https://maps.app.goo.gl/eDwAdWkN6JgrDdsr6" target="_blank" class="top-banner__item">
+        <i class="ri-map-pin-2-fill"></i>45/1 Aaly Tokombaev St, Bishkek
+      </a>
     </div>
-
-    <ul class="nav__links" id="nav-links">
-      <li><a href="./index.html#home">Home</a></li>
-      <li><a href="./index.html#about">Destinations</a></li>
-      <li><a href="./index.html#tour">Packages</a></li>
-      <li><a href="./index.html#package">Blog</a></li>
-      <li><a href="contact-us.html">About Us</a></li>
-      <li><a href="request.html">BOOK TRIP</a></li>
-    </ul>
+    <div class="top-banner__right">
+      <a href="https://www.instagram.com/alymsvibe/" target="_blank" class="top-banner__social"><i class="ri-instagram-line"></i></a>
+      <a href="https://wa.me/996500969212/" target="_blank" class="top-banner__social"><i class="ri-whatsapp-line"></i></a>
+      <a href="./tours.html" class="top-banner__cta">
+        <i class="ri-edit-line"></i>REQUEST CUSTOM TOUR
+      </a>
+    </div>
   </div>
+</div>
 
-  <div class="navLeftside">
+<!-- Nav -->
+<nav itemscope itemtype="https://schema.org/SiteNavigationElement">
+  <div class="nav__inner">
+    <!-- Logo -->
+    <div class="nav__logo">
+      <a href="https://kyrgyzcore.com/">
+        <img class="logo" src="./assets/logo.png" alt="Kyrgyz Core">
+      </a>
+    </div>
+    <!-- Links (desktop) -->
+    <ul class="nav__links" id="nav-links">
+      <li><a href="https://kyrgyzcore.com/">Home</a></li>
+      <li><a href="https://kyrgyzcore.com/destination.html">Destinations</a></li>
+      <li><a href="https://kyrgyzcore.com/tours.html">Packages</a></li>
+      <li><a href="https://kyrgyzcore.com/index.html#blog">Blog</a></li>
+      <li><a href="https://kyrgyzcore.com/about.html">About Us</a></li>
+      <li><a href="./tours.html">BOOK TRIP</a></li>
+    </ul>
+
+    <!-- Search (desktop) -->
     <div class="search-wrapper">
       <div class="search-bar">
-        <input type="text" placeholder="Search for a place, city, or destination..." autocomplete="off">
+        <input type="text" placeholder="Search destinations..." autocomplete="off">
         <img src="./assets/Loop.svg" alt="Search">
         <ul class="suggestions"></ul>
       </div>
     </div>
 
-    <div class="nav__btns">
-      <button class="btn" onclick="window.location.href='request.html'">Book Trip</button>
+    <!-- Search (mobile) -->
+    <div class="search-wrapper-mbl">
+      <div class="search-bar">
+        <input type="text" placeholder="Search..." autocomplete="off">
+        <img src="./assets/Loop.svg" alt="Search">
+        <ul class="suggestions"></ul>
+      </div>
     </div>
+
+    <!-- Book button (desktop) -->
+    <div class="nav__btns">
+      <button class="btn" onclick="window.location.href='../tours.html'">Book Trip</button>
+    </div>
+
+    <!-- Burger (mobile) -->
+    <div class="nav__menu__btn" id="menu-btn">
+      <i class="ri-menu-3-fill"></i>
+    </div>
+
   </div>
 </nav>
 
@@ -246,7 +272,7 @@
           </div>
         </a>
 
-        <a class="related-item" href="fairytale-canyon.html">
+        <a class="related-item" href="canyon-skazka.html">
           <img src="./assets/canyon-skazka-rocks.png" alt="Fairytale Canyon" />
           <div>
             <div class="related-item__tag">Canyon</div>
@@ -282,65 +308,152 @@
     <div class="cta-card">
       <h3>Plan a wellness day</h3>
       <p>We can combine Aska Thermal Spa with nearby scenic stops and a relaxed schedule.</p>
-      <a href="request.html" class="cta-btn">Request a Tour</a>
-      <a href="contact-us.html" class="cta-btn-outline">Contact Us</a>
+      <a href="./tours.html" class="cta-btn">Request a Tour</a>
+      <a href="./contact-us.html" class="cta-btn-outline">Contact Us</a>
     </div>
 
   </aside>
 
 </div>
 
-<footer id="contact">
-  <div class="section__container footer__container">
-    <div class="footer__col">
-      <div class="footer__logo">
-        <a href="#" class="logo">Skywings</a>
+   <!-- FULL FOOTER -->
+    <footer id="contact">
+      <div class="section__container footer__container">
+
+        <!-- Contact Form (слева) -->
+        <div class="footer__col footer__contact-form">
+          <h4>Contact with us</h4>
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="f8e3c043-ac54-455c-b211-803163643f01">
+            <input type="text"  name="name"    placeholder="Your name" required>
+            <input type="email" name="email"   placeholder="Your email" required>
+            <textarea           name="message" placeholder="Your message"></textarea>
+            <button type="submit" class="btn footer-send-btn">Send</button>
+          </form>
+        </div>
+
+        <!-- Logo + описание + соцсети -->
+        <div class="footer__col">
+          <div class="footer__logo">
+            <a href="../index.html" class="logo">Kyrgyz Core</a>
+          </div>
+          <p>
+            Explore Kyrgyzstan safely and confidently.
+            We combine local expertise with premium travel planning.
+          </p>
+          <ul class="footer__socials">
+            <li><a href="#"><i class="ri-facebook-fill"></i></a></li>
+            <li><a href="#"><i class="ri-instagram-line"></i></a></li>
+            <li><a href="#"><i class="ri-youtube-line"></i></a></li>
+          </ul>
+        </div>
+
+      <!-- Quick Links -->
+        <div class="footer__col">
+          <h4>Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="https://kyrgyzcore.com/">Home</a></li>
+            <li><a href="https://kyrgyzcore.com/destination.html">Destinations</a></li>
+            <li><a href="https://kyrgyzcore.com/tours.html">Packages</a></li>
+            <li><a href="https://kyrgyzcore.com/index.html#blog">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul class="footer__links">
+            <li> <a href="tel:+996500969212"><span><i class="ri-phone-fill"></i></span> +996 500 969 212 </a></li>
+            <li> <a href="mailto:kyrgyzcore@gmail.com"> <span><i class="ri-record-mail-line"></i></span> kyrgyzcore@gmail.com </a></li>
+            <li> <a href="https://maps.app.goo.gl/eDwAdWkN6JgrDdsr6"> <span><i class="ri-map-pin-2-fill"></i></span> Bishkek, Kyrgyzstan </a></li>
+          </ul>
+        </div>
+
       </div>
-      <p>
-        Explore the world with ease and excitement through our comprehensive
-        travel platform. Your journey begins here, where seamless planning
-        meets unforgettable experiences.
-      </p>
-      <ul class="footer__socials">
-        <li><a href="#"><i class="ri-facebook-fill"></i></a></li>
-        <li><a href="#"><i class="ri-instagram-line"></i></a></li>
-        <li><a href="#"><i class="ri-youtube-line"></i></a></li>
-      </ul>
+
+      <div class="footer__bar">
+        Copyright © 2026 Alymsvibe. All rights reserved.
+      </div>
+    </footer>
+
+
+<!-- WhatsApp Widget -->
+<div class="wa-widget" id="waWidget">
+  
+  <div class="wa-popup" id="waPopup">
+    <div class="wa-popup-header">
+      <div>
+        <h4>Hello! 👋</h4>
+        <p>Click one of our contacts below to chat on WhatsApp</p>
+      </div>
+      <button class="wa-close" onclick="toggleWA()">✕</button>
     </div>
 
-    <div class="footer__col">
-      <h4>Quick Links</h4>
-      <ul class="footer__links">
-        <li><a href="./index.html#home">Home</a></li>
-        <li><a href="./index.html#about">Destinations</a></li>
-        <li><a href="./index.html#tour">Packages</a></li>
-        <li><a href="./index.html#package">Blog</a></li>
-      </ul>
+    <div class="wa-contacts">
+      <a href="https://wa.me/996500969212/" target="_blank" class="wa-contact">
+        <img src="../assets/Alymbek-Urozmatov-icon.jpg" alt="Urozmatov Alymbek" class="wa-avatar">
+        <div class="wa-info">
+          <span class="wa-role">Tour manager (Eng -	Deu. speaking)</span>
+          <span class="wa-name">Alymbek Urozmatov</span>
+        </div>
+      </a>
+      <a href="https://wa.me/996550099997" target="_blank" class="wa-contact">
+        <img src="../assets/Sultan-Dzhunushaliev-icon.jpg" alt="Sultan Dzhunushaliev" class="wa-avatar">
+        <div class="wa-info">
+          <span class="wa-role">Tour manager (Jpn, Eng. speaking)</span>
+          <span class="wa-name">Sultan Dzhunushaliev</span>
+        </div>
+      </a>
     </div>
 
-    <div class="footer__col">
-      <h4>Contact Us</h4>
-      <ul class="footer__links">
-        <li><a href="#"><span><i class="ri-phone-fill"></i></span> +996 500 969 212</a></li>
-        <li><a href="#"><span><i class="ri-record-mail-line"></i></span> nomad@gmail.com</a></li>
-        <li><a href="#"><span><i class="ri-map-pin-2-fill"></i></span> Bishkek, Kyrgyzstan</a></li>
-      </ul>
-    </div>
-
-    <div class="footer__col">
-      <h4>Subscribe</h4>
-      <form action="/">
-        <input type="text" placeholder="Enter your email" />
-        <button class="btn">Send</button>
-      </form>
-    </div>
+    <div class="wa-footer">Working hours: 8:00 am – 9:00 pm (Bishkek time)</div>
   </div>
 
-  <div class="footer__bar">
-    Copyright © 2026 Alymsvibe. All rights reserved.
-  </div>
-</footer>
+  <button class="wa-btn" onclick="toggleWA()">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.509 5.842L.057 23.428a.5.5 0 0 0 .609.61l5.627-1.437A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.523-5.183-1.432l-.371-.22-3.862.987.999-3.77-.242-.389A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+    </svg>
+    <span>How can I help you?</span>
+  </button>
 
+</div>
+
+
+<div class="image-viewer" id="imageViewer">
+  <span class="viewer-close" id="viewerClose">✕</span>
+  <img id="viewerImage">
+</div>
+  <!-- JS (page is inside /tours) -->
+<script>
+const viewer = document.getElementById("imageViewer");
+const viewerImg = document.getElementById("viewerImage");
+const viewerClose = document.getElementById("viewerClose");
+
+document.querySelectorAll("img").forEach(img => {
+  // Пропускаем лого и иконки
+  const src = img.src.toLowerCase();
+  if (src.includes("logo") || src.includes("loop.svg")) {
+    return; // не добавляем обработчик
+  }
+
+  img.addEventListener("click", () => {
+    viewerImg.src = img.src;
+    viewer.classList.add("active");
+  });
+});
+
+
+viewerClose.onclick = () => viewer.classList.remove("active");
+
+viewer.onclick = (e) => {
+  if(e.target === viewer) viewer.classList.remove("active");
+};
+
+document.addEventListener("keydown",(e)=>{
+  if(e.key === "Escape") viewer.classList.remove("active");
+});
+</script>
 <script src="./js/blog.js"></script>
 <script src="./js/searchBar.js"></script>
 <script src="./js/main.js"></script>
