@@ -372,7 +372,7 @@
       <i class="ri-arrow-left-s-line"></i>
     </button>
 <div class="carousel-wrapper">
-  <div class="carousel-track" id="carouselTrack">
+  <div class="carousel-track no-zoom-container"" id="carouselTrack">
 
     <!-- Altyn-Arashan -->
     <div class="destination__card" data-tags="mountain,landscape">
@@ -878,25 +878,34 @@
 </div>
 
 
+
 <div class="image-viewer" id="imageViewer">
   <span class="viewer-close" id="viewerClose">✕</span>
   <img id="viewerImage">
 </div>
   <!-- JS (page is inside /tours) -->
-<script>
-const viewer = document.getElementById("imageViewer");
+<script>const viewer = document.getElementById("imageViewer");
 const viewerImg = document.getElementById("viewerImage");
 const viewerClose = document.getElementById("viewerClose");
 
-document.querySelectorAll("img").forEach(img => {
-
+// Только картинки, которые МОЖНО увеличивать
+document.querySelectorAll("img:not(.no-zoom):not(#carouselTrack img)").forEach(img => {
   img.addEventListener("click", () => {
     viewerImg.src = img.src;
     viewer.classList.add("active");
   });
-
 });
 
+viewerClose.onclick = () => viewer.classList.remove("active");
+
+viewer.onclick = (e) => {
+  if(e.target === viewer) viewer.classList.remove("active");
+};
+
+document.addEventListener("keydown",(e)=>{
+  if(e.key === "Escape") viewer.classList.remove("active");
+});
+  
 viewerClose.onclick = () => viewer.classList.remove("active");
 
 viewer.onclick = (e) => {
@@ -913,4 +922,5 @@ document.addEventListener("keydown",(e)=>{
     <script src="./js/main.js"></script>    
   </body>
 </html>
+
 
