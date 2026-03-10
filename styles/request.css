@@ -197,6 +197,10 @@ aside {
 
 /* Responsive */
 @media (max-width: 768px) {
+
+  .hero-price{
+    font-size: 16px;
+  }
   
 .hero h1 {
   line-height: 30px;
@@ -280,4 +284,5 @@ aside {
     }
 
 }
+
 
