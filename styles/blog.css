@@ -488,9 +488,10 @@ body {
 }
 
 @media (max-width: 600px) {
-  .hero { height: 260px; margin-top: 70px; }
+  .hero { height: 260px;  }
   .activity-grid { grid-template-columns: 1fr; }
   .photo-grid { grid-template-columns: 1fr 1fr; }
   .wrap { padding: 24px 14px 20px; gap: 10px; }
   .article__intro {padding: 14px;}
 }
+
