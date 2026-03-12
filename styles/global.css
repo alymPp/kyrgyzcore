@@ -9,17 +9,16 @@
   --btn-clr: linear-gradient(135deg, #e05c2e 0%, #c94820 100%);
   --max-width: 1200px;
 
-    --color-primary: #202F4C;        /* Deep Navy - основной темный */
-  --color-primary-light: #2A3F5F;  /* Lighter navy для hover */
-  --color-primary-dark: #1A2538;   /* Darker navy для акцентов */
-  --color-primary-rgb: 32, 47, 76; /* Для rgba использования */
+  --color-primary: #202F4C;
+  --color-primary-light: #2A3F5F;
+  --color-primary-dark: #1A2538;
+  --color-primary-rgb: 32, 47, 76;
   
-  --color-accent: #e05c2e;         /* Golden Yellow - акцентный */
-  --color-accent-light: #FFCA3A;   /* Lighter yellow для hover */
-  --color-accent-dark: #E5A50D;    /* Darker yellow для активных состояний */
-  --color-accent-rgb: 253, 185, 19; /* Для rgba использования */
+  --color-accent: #e05c2e;
+  --color-accent-light: #FFCA3A;
+  --color-accent-dark: #E5A50D;
+  --color-accent-rgb: 253, 185, 19;
   
-  /* Neutral Colors */
   --color-white: #FFFFFF;
   --color-black: #000000;
   --color-gray-50: #F8F9FA;
@@ -32,12 +31,10 @@
   --color-gray-700: #333333;
   --color-gray-800: #1A1A1A;
   
-  /* Semantic Colors */
   --color-success: #4CAF50;
   --color-danger: #E74C3C;
   --color-info: #3498DB;
   
-  /* Spacing */
   --spacing-xs: 8px;
   --spacing-sm: 12px;
   --spacing-md: 10px;
@@ -45,7 +42,6 @@
   --spacing-xl: 40px;
   --spacing-2xl: 60px;
   
-  /* Border Radius */
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
@@ -53,13 +49,11 @@
   --radius-2xl: 20px;
   --radius-full: 50%;
   
-  /* Shadows */
   --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
   --shadow-md: 0 4px 15px rgba(0,0,0,0.1);
   --shadow-lg: 0 4px 20px rgba(0,0,0,0.1);
   --shadow-xl: 0 10px 30px rgba(0,0,0,0.5);
   
-  /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-base: 0.3s ease;
   --transition-slow: 0.5s ease;
@@ -72,33 +66,25 @@
 }
 
 html {
-    scroll-behavior: auto !important;
+  scroll-behavior: smooth;
 }
 
 #kyrgyzcore,
 #express-kyrgyzstan,
 #kyrgyz-discovery {
-    scroll-margin-top: 60px;
-}
-
-html,
-body {
-  scroll-behavior: smooth;
+  scroll-margin-top: 60px;
 }
 
 body {
-    font-family: 'Inter', sans-serif;   
-    background-color: #ffffff; 
+  font-family: 'Inter', sans-serif;   
+  background-color: #ffffff; 
 }
 
-
- h1 {
+h1 {
   color: var(--white);
   text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
   padding: 0 0 10px;
 }
-
-
 
 img {
   display: flex;
@@ -111,9 +97,10 @@ img {
 }
 
 a {
-  text-decoration: none;   /* убирает подчёркивание */
-  color: inherit;          /* наследует цвет от родителя */
+  text-decoration: none;
+  color: inherit;
 }
+
 ul {
   list-style: none;
 }
@@ -129,7 +116,7 @@ ul {
   cursor: pointer;
 }
 
-.primary-btn{
+.primary-btn {
   display: block;
   width: 250px;
   background: linear-gradient(135deg, #e05c2e 0%, #c94820 100%);
@@ -149,35 +136,30 @@ ul {
 .btn--primary {
   background: #fff;
   color: #414919;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn--primary:hover{
+.btn--primary:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.2);
   background: rgba(255, 255, 255, 0.2);
   color: white;
-
 }
 
 .btn--outline {
   background: transparent;
-  border: 2px solid #fff  !important;
+  border: 2px solid #fff !important;
   color: #fff;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn--outline:hover{
+.btn--outline:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.2);
   background: rgba(255, 255, 255, 0.2);
   color: white;
-
 }
+
 .section__container {
   max-width: var(--max-width);
   margin: auto;
@@ -257,10 +239,10 @@ ul {
   border-color: #e05c2e;
   background: #fff;
 }
+
 .form-input::placeholder {
   color: #bbb;
 }
-
 
 .form-textarea {
   min-height: 80px;
@@ -426,8 +408,6 @@ ul {
   text-align: center;
 }
 
-
-
 .modal {
   font-family: "DM Sans", Sans-serif;
   display: none;
@@ -438,34 +418,30 @@ ul {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.8);
-
-  /* центрирование */
   justify-content: center;
   align-items: center;
 }
 
 .modal.active {
-  display: flex;              /* показываем модалку */
+  display: flex;
 }
 
 .modal-content {  
   background: white;
   padding: 30px;
-
   width: 100%;
   max-width: 700px;
-
   max-height: 95vh;
   overflow-y: auto;
-
   position: relative;
 }
+
 .modal-content h2 {
   color: var(--color-primary);
   text-align: center;
 }
 
-.modal-sub{
+.modal-sub {
   text-align: center;
   color: var(--color-gray-600);
   font-size: 14px;
@@ -476,16 +452,15 @@ ul {
   line-height: 1.86em;
   letter-spacing: -0.2px;
 }
+
 .close {
   position: sticky;
   top: 0;
   float: right;
-
   font-size: 26px;
   font-weight: 600;
   cursor: pointer;
   padding: 5px 10px;
-
   z-index: 10;
 }
 
@@ -495,16 +470,16 @@ ul {
 }
 
 .form-group {
-margin-bottom:15px;
+  margin-bottom: 15px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-width:100%;
-padding:10px;
-border:1px solid #202f4ca3;
-border-radius:6px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #202f4ca3;
+  border-radius: 6px;
 }
 
 .form-group input,
@@ -519,14 +494,12 @@ border-radius:6px;
 }
 
 .submit-btn {
-background:#ff5a3c;
-color:white;
-border:none;
-padding:10px;
-width:100%;
-border-radius:8px;
-font-size:16px;
-cursor:pointer;
+  background: #ff5a3c;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
 }
-
-
