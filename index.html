@@ -884,12 +884,12 @@
   <img id="viewerImage">
 </div>
   <!-- JS (page is inside /tours) -->
-<script>const viewer = document.getElementById("imageViewer");
+<script>
+const viewer = document.getElementById("imageViewer");
 const viewerImg = document.getElementById("viewerImage");
 const viewerClose = document.getElementById("viewerClose");
 
-// Только картинки, которые МОЖНО увеличивать
-document.querySelectorAll("img:not(.no-zoom):not(#carouselTrack img)").forEach(img => {
+document.querySelectorAll("img:not(.no-zoom):not(.no-zoom-container img):not(#carouselTrack img):not(.gallery-img):not(.journey-card-bg)").forEach(img => {
   img.addEventListener("click", () => {
     viewerImg.src = img.src;
     viewer.classList.add("active");
@@ -897,24 +897,8 @@ document.querySelectorAll("img:not(.no-zoom):not(#carouselTrack img)").forEach(i
 });
 
 viewerClose.onclick = () => viewer.classList.remove("active");
-
-viewer.onclick = (e) => {
-  if(e.target === viewer) viewer.classList.remove("active");
-};
-
-document.addEventListener("keydown",(e)=>{
-  if(e.key === "Escape") viewer.classList.remove("active");
-});
-  
-viewerClose.onclick = () => viewer.classList.remove("active");
-
-viewer.onclick = (e) => {
-  if(e.target === viewer) viewer.classList.remove("active");
-};
-
-document.addEventListener("keydown",(e)=>{
-  if(e.key === "Escape") viewer.classList.remove("active");
-});
+viewer.onclick = (e) => { if(e.target === viewer) viewer.classList.remove("active"); };
+document.addEventListener("keydown", (e) => { if(e.key === "Escape") viewer.classList.remove("active"); });
 </script>
     <script src="./js/tour-card.js"></script>
     <script src="./js/searchBar.js"></script>
@@ -922,5 +906,6 @@ document.addEventListener("keydown",(e)=>{
     <script src="./js/main.js"></script>    
   </body>
 </html>
+
 
 
