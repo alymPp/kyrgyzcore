@@ -10,13 +10,10 @@
       card.classList.toggle('small', index !== activeIndex);
     });
 
-    const percentage = (activeIndex / (journeyCards.length - 1)) * 100;
-
-    journeyProgressBar.style.width =
-      `${33.33 + (percentage * 33.33) / 100}%`;
-
-    journeyProgressBar.style.left =
-      `${(activeIndex / journeyCards.length) * 100}%`;
+    const total = journeyCards.length;
+    const width = 100 / total;
+    journeyProgressBar.style.width = `${width}%`;
+    journeyProgressBar.style.left = `${activeIndex * width}%`;
   }
 
   journeyCards.forEach((card, index) => {
