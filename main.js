@@ -72,7 +72,8 @@ const swiper = new Swiper(".swiper", {
 });
 
 
-  const dropdown = document.querySelector(".dropdown");
+ const dropdown = document.querySelector(".dropdown");
+if (dropdown) {
   const toggle = dropdown.querySelector(".dropdown__toggle");
 
   toggle.addEventListener("click", () => {
@@ -84,5 +85,6 @@ const swiper = new Swiper(".swiper", {
       dropdown.classList.remove("active");
     }
   });
-
+}
   
+
