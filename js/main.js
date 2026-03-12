@@ -8,24 +8,28 @@ function updateMenuTop() {
   navLinks.style.height = `calc(100vh - ${navBottom}px)`;
 }
 
-document.getElementById('menu-btn').addEventListener('click', () => {
-  updateMenuTop();
-  const navLinks = document.getElementById('nav-links');
-  const icon = document.querySelector('#menu-btn i');
-  
-  navLinks.classList.toggle('open');
-  
-  if (navLinks.classList.contains('open')) {
-    icon.classList.remove('ri-menu-3-fill');
-    icon.classList.add('ri-close-line');
-  } else {
-    icon.classList.remove('ri-close-line');
-    icon.classList.add('ri-menu-3-fill');
-  }
-});
+const menuBtn = document.getElementById('menu-btn');
+if (menuBtn) {
+  menuBtn.addEventListener('click', () => {
+    updateMenuTop();
+    const navLinks = document.getElementById('nav-links');
+    const icon = document.querySelector('#menu-btn i');
+    
+    navLinks.classList.toggle('open');
+    
+    if (navLinks.classList.contains('open')) {
+      icon.classList.remove('ri-menu-3-fill');
+      icon.classList.add('ri-close-line');
+    } else {
+      icon.classList.remove('ri-close-line');
+      icon.classList.add('ri-menu-3-fill');
+    }
+  });
+}
 
 window.addEventListener('scroll', () => {
-  if (document.getElementById('nav-links').classList.contains('open')) {
+  const navLinks = document.getElementById('nav-links');
+  if (navLinks && navLinks.classList.contains('open')) {
     updateMenuTop();
   }
 });
@@ -36,7 +40,6 @@ const scrollRevealOption = {
   duration: 1000,
 };
 
-// Dropdown (только если есть на странице)
 const dropdown = document.querySelector(".dropdown");
 if (dropdown) {
   const toggle = dropdown.querySelector(".dropdown__toggle");
@@ -47,25 +50,31 @@ if (dropdown) {
 }
 
 function openModal(tourName) {
-  document.querySelector('input[name="tour_name"]').value = tourName || '';
-  document.getElementById("bookingModal").classList.add('active');
+  const input = document.querySelector('input[name="tour_name"]');
+  if (input) input.value = tourName || '';
+  const modal = document.getElementById("bookingModal");
+  if (modal) modal.classList.add('active');
   document.body.style.overflow = 'hidden';
-  document.getElementById("waWidget").style.display = 'none';
+  const wa = document.getElementById("waWidget");
+  if (wa) wa.style.display = 'none';
 }
 
 function closeModal() {
-  document.getElementById("bookingModal").classList.remove('active');
+  const modal = document.getElementById("bookingModal");
+  if (modal) modal.classList.remove('active');
   document.body.style.overflow = '';
-  document.getElementById("waWidget").style.display = 'flex';
+  const wa = document.getElementById("waWidget");
+  if (wa) wa.style.display = 'flex';
 }
 
 function toggleWA() {
-  document.getElementById('waPopup').classList.toggle('open');
+  const popup = document.getElementById('waPopup');
+  if (popup) popup.classList.toggle('open');
 }
 
 document.addEventListener('click', e => {
   const widget = document.getElementById('waWidget');
-  if (!widget.contains(e.target)) {
+  if (widget && !widget.contains(e.target)) {
     document.getElementById('waPopup').classList.remove('open');
   }
 });
