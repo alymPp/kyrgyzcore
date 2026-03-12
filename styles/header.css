@@ -299,4 +299,25 @@ header{
 }
 
 
+@media (width <= 768px) {
+  .hero__overlay,
+  .hero::after,
+  .hero::before,
+  header::before {
+    pointer-events: none !important;
+  }
+
+  .hero__actions {
+    position: relative;
+    z-index: 999 !important;
+    pointer-events: all !important;
+  }
+
+  .hero__actions a {
+    display: block;
+    position: relative;
+    z-index: 999 !important;
+    pointer-events: all !important;
+  }
+}
 
