@@ -248,7 +248,7 @@ ul {
   min-height: 80px;
 }
 
-/* ── WHATSAPP WIDGET ─────────────────────────────────── */
+
 .wa-widget {
   position: fixed;
   bottom: 24px;
@@ -259,9 +259,12 @@ ul {
   align-items: flex-end;
   gap: 12px;
   font-family: 'DM Sans', sans-serif;
+  width: fit-content;
+  pointer-events: none;
 }
 
 .wa-btn {
+  pointer-events: all;
   z-index: 50;
   display: flex;
   align-items: center;
@@ -503,3 +506,4 @@ ul {
   font-size: 16px;
   cursor: pointer;
 }
+
