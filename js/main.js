@@ -15,7 +15,6 @@ document.getElementById('menu-btn').addEventListener('click', () => {
   
   navLinks.classList.toggle('open');
   
-  // Переключаем иконку
   if (navLinks.classList.contains('open')) {
     icon.classList.remove('ri-menu-3-fill');
     icon.classList.add('ri-close-line');
@@ -31,46 +30,39 @@ window.addEventListener('scroll', () => {
   }
 });
 
-
 const scrollRevealOption = {
   origin: "bottom",
   distance: "50px",
   duration: 1000,
 };
 
-  const dropdown = document.querySelector(".dropdown");
+// Dropdown (только если есть на странице)
+const dropdown = document.querySelector(".dropdown");
+if (dropdown) {
   const toggle = dropdown.querySelector(".dropdown__toggle");
-
-  toggle.addEventListener("click", () => {
-    dropdown.classList.toggle("active");
-  });
-
+  toggle.addEventListener("click", () => dropdown.classList.toggle("active"));
   document.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target)) {
-      dropdown.classList.remove("active");
-    }
+    if (!dropdown.contains(e.target)) dropdown.classList.remove("active");
   });
-
+}
 
 function openModal(tourName) {
   document.querySelector('input[name="tour_name"]').value = tourName || '';
   document.getElementById("bookingModal").classList.add('active');
   document.body.style.overflow = 'hidden';
-  document.getElementById("waWidget").style.display = 'none'; // скрыть WA
+  document.getElementById("waWidget").style.display = 'none';
 }
 
 function closeModal() {
   document.getElementById("bookingModal").classList.remove('active');
   document.body.style.overflow = '';
-  document.getElementById("waWidget").style.display = 'flex'; // вернуть WA
+  document.getElementById("waWidget").style.display = 'flex';
 }
-
 
 function toggleWA() {
   document.getElementById('waPopup').classList.toggle('open');
 }
 
-// Закрыть при клике вне виджета
 document.addEventListener('click', e => {
   const widget = document.getElementById('waWidget');
   if (!widget.contains(e.target)) {
