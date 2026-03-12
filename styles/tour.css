@@ -1,11 +1,8 @@
-.journey-card-bg {
-  pointer-events: none !important;
-}
 .tour-container {
   max-width: var(--max-width);
   width: 100%;
   margin: auto;
-  padding: 5rem 1rem 0px;
+  padding: 5rem 1rem 0;
   position: relative;
 }
 
@@ -46,7 +43,7 @@
 .card-overlay {
   position: absolute;
   inset: 0;
-  background:linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.3) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.65) 100%);
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -57,6 +54,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 14px;
 }
 
 .card-title {
@@ -91,6 +89,7 @@
   opacity: 0;
   height: 0;
   overflow: hidden;
+  margin: 0;
 }
 
 .gallery-img {
@@ -120,6 +119,7 @@
   transition: all 0.3s;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  text-decoration: none;
 }
 
 .btn-primary {
@@ -142,7 +142,7 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-.journey-card.small .btn {
+.journey-card.small .card-btn {
   padding: 12px 20px;
   font-size: 12px;
 }
@@ -163,12 +163,6 @@
   overflow: hidden;
 }
 
-.journey-card.small .card-actions {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-
 .footer-item {
   display: flex;
   align-items: center;
@@ -181,44 +175,56 @@
   fill: white;
 }
 
-.price-tag{
+/* PRICE TAG */
+.price-tag {
   position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  flex-shrink: 0;
 }
 
-/* 🔥 бейдж скидки */
-.discount-badge{
+.old-price {
+  display: block;
+  font-size: 14px;
+  text-decoration: line-through;
+  opacity: 0.45;
+  color: #333;
+}
+
+.new-price {
+  line-height: 22px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary-color-dark);
+}
+
+.discount-badge {
   position: absolute;
-  top: -14px;
+  top: -18px;
   right: -10px;
-  background: linear-gradient(135deg,#ff5f6d,#ffb347);
+  background: linear-gradient(135deg, #ff5f6d, #ffb347);
   color: white;
   font-size: 12px;
   font-weight: 700;
   padding: 6px 10px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  animation: firePulse 1.5s infinite;
+  box-shadow:
+    0 4px 12px rgba(255, 95, 109, 0.45),
+    0 2px 6px rgba(0,0,0,0.15);
+  animation: floatPulse 2s ease-in-out infinite;
+  white-space: nowrap;
 }
 
-/* старая цена */
-.old-price{
-  display: block;
-  font-size: 14px;
-  text-decoration: line-through;
-  opacity: 0.7;
-}
-
-/* новая цена */
-.new-price{
-  font-size: 22px;
-  font-weight: 800;
-}
-
-/* эффект огонька */
-@keyframes firePulse{
-  0%{transform: scale(1);}
-  50%{transform: scale(1.08);}
-  100%{transform: scale(1);}
+@keyframes floatPulse {
+  0%   { transform: translateY(0) scale(1); }
+  30%  { transform: translateY(-3px) scale(1.07); }
+  60%  { transform: translateY(-2px) scale(1.04); }
+  100% { transform: translateY(0) scale(1); }
 }
 
 .progress-line {
@@ -240,109 +246,45 @@
   width: 33.33%;
 }
 
-
-  /* ─── Price Tag ─── */
-  .price-tag {
-    position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 10px;
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  }
-
-  /* ─── Старая цена ─── */
-  .old-price {
-    display: block;
-    font-size: 14px;
-    text-decoration: line-through;
-    opacity: 0.45;
-    color: #333;
-  }
-
-  /* ─── Новая цена ─── */
-  .new-price {
-    line-height: 22px;
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--primary-color-dark);
-  }
-
-  /* ─── Бейдж скидки ─── */
-  .discount-badge {
-    position: absolute;
-    top: -18px;
-    right: -10px;
-    background: linear-gradient(135deg, #ff5f6d, #ffb347);
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 6px 10px;
-    border-radius: 12px;
-    box-shadow:
-      0 4px 12px rgba(255, 95, 109, 0.45),
-      0 2px 6px rgba(0,0,0,0.15);
-
-    /* комбо: левитация + пульс */
-    animation: floatPulse 2s ease-in-out infinite;
-  }
-
-  @keyframes floatPulse {
-    0%   { transform: translateY(0px)  scale(1);    box-shadow: 0 4px 12px rgba(255,95,109,0.45); }
-    30%  { transform: translateY(-3px) scale(1.07); box-shadow: 0 10px 20px rgba(255,95,109,0.3); }
-    60%  { transform: translateY(-2px) scale(1.04); box-shadow: 0 8px 16px rgba(255,95,109,0.35); }
-    100% { transform: translateY(0px)  scale(1);    box-shadow: 0 4px 12px rgba(255,95,109,0.45); }
-  }
 @media (max-width: 900px) {
   .tour-container {
-    padding: 3rem 1rem 0px;
+    padding: 3rem 1rem 0;
   }
 
-  .card-overlay {
-  padding: 20px;
-}
   .cards-wrapper {
     flex-direction: column;
     gap: 24px;
   }
 
+  .card-overlay {
+    padding: 20px;
+  }
+
   .journey-card,
   .journey-card.small {
     flex: 1 !important;
-    height: 450px !important;
+    height: 420px !important;
   }
 
+  .card-header {
+    gap: 10px;
+  }
+
+  .card-title,
   .journey-card.small .card-title {
     font-size: 28px !important;
   }
 
-  .journey-card.small .card-gallery {
-    opacity: 1 !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-
+  .card-gallery,
+  .journey-card.small .card-gallery,
+  .card-footer,
   .journey-card.small .card-footer {
     opacity: 1 !important;
     height: auto !important;
     overflow: visible !important;
   }
 
-  .card-gallery,
-  .card-footer {
-    opacity: 1 !important;
-    height: auto !important;
-  }
-
-  .card-title {
-    font-size: 28px !important;
-  }
-
-  .progress-bar {
+  .progress-line {
     display: none;
   }
-
 }
-
