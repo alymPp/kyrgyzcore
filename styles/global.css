@@ -105,6 +105,11 @@ img {
   width: 100%;
 }
 
+.btn, .card-btn, .hero__actions a {
+  position: relative;
+  z-index: 10;
+}
+
 a {
   text-decoration: none;   /* убирает подчёркивание */
   color: inherit;          /* наследует цвет от родителя */
@@ -523,4 +528,5 @@ border-radius:8px;
 font-size:16px;
 cursor:pointer;
 }
+
 
