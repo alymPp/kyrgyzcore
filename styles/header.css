@@ -1,3 +1,21 @@
+header::before {
+  pointer-events: none; /* добавь это */
+}
+
+.hero::after {
+  pointer-events: none; /* добавь это */
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative; /* убедись что есть */
+  z-index: 3;
+}
+
+.hero__actions .btn {
+  position: relative;
+  z-index: 4; /* поверх всего */
+}
 header::before{
   content:"";
   position:absolute;
@@ -27,7 +45,7 @@ h1 span {
 header{
   position: relative;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 5rem auto 0;
   padding-inline: 1rem;
 }
 
@@ -196,6 +214,7 @@ header{
   }
 
   header{
+    margin-top: 5rem;
     padding-inline: unset;
   }
   header::before{
@@ -278,7 +297,6 @@ header{
 
  
 }
-
 
 
 
