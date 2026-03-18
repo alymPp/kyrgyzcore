@@ -367,37 +367,53 @@
   <span class="viewer-close" id="viewerClose">✕</span>
   <img id="viewerImage">
 </div>
-  <!-- JS (page is inside /tours) -->
+ <div class="image-viewer" id="imageViewer">
+  <span class="viewer-close" id="viewerClose">✕</span>
+  <img id="viewerImage" alt="Preview">
+</div>
+
 <script>
 const viewer = document.getElementById("imageViewer");
 const viewerImg = document.getElementById("viewerImage");
 const viewerClose = document.getElementById("viewerClose");
 
 document.querySelectorAll("img").forEach(img => {
-  // Пропускаем лого и иконки
   const src = img.src.toLowerCase();
-  if (src.includes("logo") || src.includes("loop.svg")) {
-    return; // не добавляем обработчик
+
+  // Не открываем логотипы, иконки и само preview-изображение
+  if (
+    src.includes("logo") ||
+    src.includes("loop.svg") ||
+    img.id === "viewerImage"
+  ) {
+    return;
   }
 
   img.addEventListener("click", () => {
     viewerImg.src = img.src;
+    viewerImg.alt = img.alt || "Preview image";
     viewer.classList.add("active");
   });
 });
 
+viewerClose.addEventListener("click", () => {
+  viewer.classList.remove("active");
+});
 
-viewerClose.onclick = () => viewer.classList.remove("active");
+// Закрытие по клику на тёмный фон
+viewer.addEventListener("click", (e) => {
+  if (e.target === viewer) {
+    viewer.classList.remove("active");
+  }
+});
 
-viewer.onclick = (e) => {
-  if(e.target === viewer) viewer.classList.remove("active");
-};
-
-document.addEventListener("keydown",(e)=>{
-  if(e.key === "Escape") viewer.classList.remove("active");
+// Закрытие по Escape
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    viewer.classList.remove("active");
+  }
 });
 </script>
-
 <script src="./js/blog.js"></script>
 <script src="./js/searchBar.js"></script>
 <script src="./js/main.js"></script>
