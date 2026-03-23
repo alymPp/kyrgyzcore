@@ -156,7 +156,7 @@ const itineraryData = {
     stats: { distance: "—", duration: "Full day", accommodation: "Yurt camp" },
     difficulty: { physical: 2, cultural: 3, photography: 5 },
     images: [
-      "../assets/skazka.jpg,
+      "../assets/skazka.jpg",
       "../assets/dead-lake-issyk-kul.jpg",
       "../assets/dead-lake-yurt.jpg",
       "../assets/besh-barmak.webp"
