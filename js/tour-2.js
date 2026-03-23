@@ -134,7 +134,7 @@ const itineraryData = {
       "../assets/altyn-arashan-road.jpg",
       "../assets/altyn-arashan-hot-springs.jpg",
       "../assets/altyn-arashan-valley.jpg",
-      "../assets/militaty-car-in-altyn-arashan.jpg",
+      "https://kyrgyzcore.com/assets/assets/militaty-car-in-altyn-arashan.JPG",
       "../assets/altyn-arashan-yourts.jpg",
       "../assets/altyn-arashan-river-road.jpg",
     ]
