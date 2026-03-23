@@ -156,10 +156,10 @@ const itineraryData = {
     stats: { distance: "—", duration: "Full day", accommodation: "Yurt camp" },
     difficulty: { physical: 2, cultural: 3, photography: 5 },
     images: [
-      "../assets/fairytale-canyon.jpg",
-      "../assets/dead-lake.jpg",
-      "../assets/yurt-stay.jpg",
-      "../assets/kyrgyz-cuisine-hero.jpg"
+      "../assets/skazka.jpg,
+      "../assets/dead-lake-issyk-kul.jpg",
+      "../assets/dead-lake-yurt.jpg",
+      "../assets/besh-barmak.webp"
     ]
   },
 
@@ -189,7 +189,7 @@ const itineraryData = {
       "../assets/kattama-view.jpg",
       "../assets/mountain-view-bishkek.jpg",
       "../assets/mountain-view-bishkek-pool.jpg",
-      "../assets/manas-international-airport.jpg"
+      "../assets/manas-international-airport.jpeg"
     ]
   }
 };
