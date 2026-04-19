@@ -30,8 +30,8 @@
       <a href="tel:+996500969212" class="top-banner__item">
         <i class="ri-phone-fill"></i>+996 500 969 212
       </a>
-      <a href="mailto:kyrgyzcore.info@gmail.com" class="top-banner__item">
-        <i class="ri-mail-line"></i>kyrgyzcore.info@gmail.com
+      <a href="mailto:kyrgyzcore@gmail.com" class="top-banner__item">
+        <i class="ri-mail-line"></i>kyrgyzcore@gmail.com
       </a>
       <a href="https://maps.app.goo.gl/eDwAdWkN6JgrDdsr6" target="_blank" class="top-banner__item">
         <i class="ri-map-pin-2-fill"></i>45/1 Aaly Tokombaev St, Bishkek
@@ -53,7 +53,7 @@
     <!-- Logo -->
     <div class="nav__logo">
       <a href="https://kyrgyzcore.com/">
-        <img class="logo no-zoom" src="../assets/logo.png" alt="Kyrgyz Core logo">
+        <img class="logo" src="./assets/logo.png" alt="Kyrgyz Core">
       </a>
     </div>
     <!-- Links (desktop) -->
@@ -307,7 +307,7 @@
           <h4>Contact</h4>
           <ul class="footer__links">
             <li> <a href="tel:+996500969212"><span><i class="ri-phone-fill"></i></span> +996 500 969 212 </a></li>
-            <li> <a href="mailto:kyrgyzcore.info@gmail.com"> <span><i class="ri-record-mail-line"></i></span> kyrgyzcore.info@gmail.com </a></li>
+            <li> <a href="mailto:kyrgyzcore@gmail.com"> <span><i class="ri-record-mail-line"></i></span> kyrgyzcore@gmail.com </a></li>
             <li> <a href="https://maps.app.goo.gl/eDwAdWkN6JgrDdsr6"> <span><i class="ri-map-pin-2-fill"></i></span> Bishkek, Kyrgyzstan </a></li>
           </ul>
         </div>
@@ -367,53 +367,37 @@
   <span class="viewer-close" id="viewerClose">✕</span>
   <img id="viewerImage">
 </div>
- <div class="image-viewer" id="imageViewer">
-  <span class="viewer-close" id="viewerClose">✕</span>
-  <img id="viewerImage" alt="Preview">
-</div>
-
+  <!-- JS (page is inside /tours) -->
 <script>
 const viewer = document.getElementById("imageViewer");
 const viewerImg = document.getElementById("viewerImage");
 const viewerClose = document.getElementById("viewerClose");
 
 document.querySelectorAll("img").forEach(img => {
+  // Пропускаем лого и иконки
   const src = img.src.toLowerCase();
-
-  // Не открываем логотипы, иконки и само preview-изображение
-  if (
-    src.includes("logo") ||
-    src.includes("loop.svg") ||
-    img.id === "viewerImage"
-  ) {
-    return;
+  if (src.includes("logo") || src.includes("loop.svg")) {
+    return; // не добавляем обработчик
   }
 
   img.addEventListener("click", () => {
     viewerImg.src = img.src;
-    viewerImg.alt = img.alt || "Preview image";
     viewer.classList.add("active");
   });
 });
 
-viewerClose.addEventListener("click", () => {
-  viewer.classList.remove("active");
-});
 
-// Закрытие по клику на тёмный фон
-viewer.addEventListener("click", (e) => {
-  if (e.target === viewer) {
-    viewer.classList.remove("active");
-  }
-});
+viewerClose.onclick = () => viewer.classList.remove("active");
 
-// Закрытие по Escape
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    viewer.classList.remove("active");
-  }
+viewer.onclick = (e) => {
+  if(e.target === viewer) viewer.classList.remove("active");
+};
+
+document.addEventListener("keydown",(e)=>{
+  if(e.key === "Escape") viewer.classList.remove("active");
 });
 </script>
+
 <script src="./js/blog.js"></script>
 <script src="./js/searchBar.js"></script>
 <script src="./js/main.js"></script>

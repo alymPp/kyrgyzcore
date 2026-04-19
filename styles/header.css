@@ -218,7 +218,7 @@ header{
     padding-inline: unset;
   }
   header::before{
-    width: calc(100% - 0.5rem);
+    width: calc(100%);
   }
 
   header::before{

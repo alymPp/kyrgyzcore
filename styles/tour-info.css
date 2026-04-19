@@ -67,20 +67,42 @@
   --transition-slow: 0.5s ease;
 }
 
-/* Hero Section */
+.section{
+  padding: 30px 0;
+}
+
 .hero {
   position: relative;
   height: 75vh;
   min-height: 500px;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), 
-              url('../assets/jeti-oguz-seven-bulls.jpg');
-  background-size: cover;
-  background-position: center;
+  color: var(--color-white);
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-white);
-  text-align: center;
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-pic-1 {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+    url('../assets/jeti-oguz-seven-bulls.jpg');
+}
+
+.hero-pic-2 {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+    url('../assets/altyn-arashan-landscape.jpg');
+}
+
+.hero-pic-3 {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+    url('../assets/ska.png');
 }
 
 .hero-meta {
@@ -938,7 +960,7 @@
 .difficulty-section {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 25px;
+  padding: 15px;
   border-radius: var(--radius-xl);
   margin-bottom: var(--spacing-lg);
 }

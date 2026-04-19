@@ -46,6 +46,13 @@ a.top-banner__item:hover { color: #fff; }
   gap: 14px;
 }
 
+/* Соцсети */
+.top-banner__socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .top-banner__social {
   color: rgba(255,255,255,0.7);
   font-size: 16px;
@@ -54,11 +61,44 @@ a.top-banner__item:hover { color: #fff; }
 }
 .top-banner__social:hover { color: #fff; }
 
+/* Языковые кнопки */
+.top-banner__languages {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-btn {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  color: rgba(255,255,255,0.75);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.lang-btn:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+}
+
+.lang-btn.active {
+  color: #fff;
+  border-color: #e05c2e;
+  background: rgba(224, 92, 46, 0.18);
+}
+
+/* CTA кнопка */
 .top-banner__cta {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #fff;
+  color: rgba(255,255,255,0.7) !important;;
   text-decoration: none;
   font-weight: 700;
   font-size: 11px;
@@ -73,6 +113,17 @@ a.top-banner__item:hover { color: #fff; }
 .top-banner__cta:hover {
   border-color: #fff;
   background: rgba(255,255,255,0.08);
+}
+
+/* Мобиле — скрываем контакты и соцсети */
+@media (max-width: 768px) {
+  .top-banner__contacts { display: none; }
+  .top-banner__socials  { display: none; }
+
+  .top-banner__container {
+    justify-content: space-around;
+    gap: 10px;
+  }
 }
 
 /* ── NAV ────────────────────────────────────────────── */
@@ -249,7 +300,7 @@ nav {
     transform: none !important;
   }
 
-  .nav__links li:last-child { display: none; } /* скрываем BOOK TRIP — есть кнопка */
+  .nav__links li:last-child { display: none; }
 }
 
 /* ── TABLET (768px — 1000px) ────────────────────────── */
@@ -265,14 +316,6 @@ nav {
 
 /* ── MOBILE (≤ 768px) ───────────────────────────────── */
 @media (width <= 768px) {
-  /* Banner — только телефон и соцсети */
-  .top-banner__contacts .top-banner__item:nth-child(2),
-  .top-banner__contacts .top-banner__item:nth-child(3) {
-    display: none;
-  }
-  .top-banner__cta { display: none; }
-
-  /* Nav */
   nav { height: 60px; }
 
   .nav__inner {
@@ -284,7 +327,6 @@ nav {
   .nav__btns { display: none; }
   .nav__menu__btn { display: block; }
 
-  /* Mobile search в header */
   .search-wrapper-mbl {
     display: flex;
     flex: 1;
@@ -297,12 +339,10 @@ nav {
     width: 100%;
   }
 
-  /* Dropdown меню */
   .nav__links {
     position: fixed;
     left: 0;
     width: 100%;
-    /* height: calc(100vh - 60px); */
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
@@ -332,7 +372,7 @@ nav {
   }
 
   .nav__links li:last-child {
-    display: block; /* BOOK TRIP показываем на мобиле */
+    display: block;
   }
 }
 

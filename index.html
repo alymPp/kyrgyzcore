@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
   
   <!-- Primary Meta Tags -->
-  <title>Best Kyrgyzstan Tours 2026 | Issyk-Kul Lake & Mountain Adventures | Kyrgyz Core</title>
+  <title>Kyrgyzstan Tours | Local Guides & Private Trips | Kyrgyz Core</title>
   <meta name="title" content="Best Kyrgyzstan Tours 2026 | Issyk-Kul, Ala-Archa & Nomadic Experiences">
   <meta name="description" content="Explore Kyrgyzstan in 2026 with premium guided tours. Discover Issyk-Kul Lake, Altyn-Arashan hot springs, Ala-Archa hiking, nomadic culture. Expert local guides. Book your Central Asia adventure now!">
   <meta name="keywords" content="Kyrgyzstan tours 2026, Issyk-Kul tours, Altyn-Arashan trekking, Ala-Archa hiking, Bishkek travel, nomadic culture Kyrgyzstan, Central Asia adventures, Jeti-Oguz, Skazka Canyon, Karakol tours, private guide Kyrgyzstan, luxury Kyrgyzstan travel, best tour operator Kyrgyzstan">
@@ -44,7 +44,7 @@
   <meta name="rating" content="general">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="./assets/icon.png">
+  <link rel="icon" type="image/png" href="./assets/icon.png">
   <link rel="apple-touch-icon" href="./assets/logo.svg">
   
   <!-- Preload critical assets -->
@@ -71,26 +71,48 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
 </head>
   <body>
-    
 <div class="top-banner">
   <div class="top-banner__container">
+
+    <!-- Контакты (скрыты на мобиле) -->
     <div class="top-banner__contacts">
       <a href="tel:+996500969212" class="top-banner__item">
         <i class="ri-phone-fill"></i>+996 500 969 212
       </a>
-      <a href="mailto:kyrgyzcore.info@gmail.com" class="top-banner__item">
-        <i class="ri-mail-line"></i>kyrgyzcore.info@gmail.com
+      <a href="mailto:kyrgyzcore@gmail.com" class="top-banner__item">
+        <i class="ri-mail-line"></i>info@kyrgyzcore.com
       </a>
       <a href="https://maps.app.goo.gl/eDwAdWkN6JgrDdsr6" target="_blank" class="top-banner__item">
         <i class="ri-map-pin-2-fill"></i>45/1 Aaly Tokombaev St, Bishkek
       </a>
     </div>
+
+    <!-- Правая часть -->
     <div class="top-banner__right">
-      <a href="https://www.instagram.com/alymsvibe/" target="_blank" class="top-banner__social"><i class="ri-instagram-line"></i></a>
-      <a href="https://wa.me/996500969212/" target="_blank" class="top-banner__social"><i class="ri-whatsapp-line"></i></a>
+
+      <!-- Соцсети (скрыты на мобиле) -->
+      <div class="top-banner__socials">
+        <a href="https://www.instagram.com/alymsvibe/" target="_blank" class="top-banner__social">
+          <i class="ri-instagram-line"></i>
+        </a>
+        <a href="https://wa.me/996500969212/" target="_blank" class="top-banner__social">
+          <i class="ri-whatsapp-line"></i>
+        </a>
+      </div>
+
+      <!-- Языки -->
+      <div class="top-banner__languages">
+        <a href="./index.html" class="lang-btn active" data-lang="en">🇬🇧 EN</a>
+        <a class="lang-btn"  href="./ko/index.html"  data-lang="de">🇰🇷 KO</a>
+        <a class="lang-btn" data-lang="de">🇩🇪 DE</a>
+      </div>
+
+      <!-- CTA -->
       <a href="./tours.html" class="top-banner__cta">
-        <i class="ri-edit-line"></i>REQUEST CUSTOM TOUR
+        <i class="ri-edit-line"></i>
+        <span data-i18n="cta">REQUEST CUSTOM TOUR</span>
       </a>
+
     </div>
   </div>
 </div>
@@ -724,11 +746,6 @@
     </div>
   </section>
 
-   
-
-
-
-
 
   <!-- FULL FOOTER -->
     <footer id="contact">
@@ -777,7 +794,7 @@
           <h4>Contact</h4>
           <ul class="footer__links">
             <li> <a href="tel:+996500969212"><span><i class="ri-phone-fill"></i></span> +996 500 969 212 </a></li>
-            <li> <a href="mailto:kyrgyzcore.info@gmail.com"> <span><i class="ri-record-mail-line"></i></span> kyrgyzcore.info@gmail.com </a></li>
+            <li> <a href="mailto:kyrgyzcore@gmail.com"> <span><i class="ri-record-mail-line"></i></span> kyrgyzcore@gmail.com </a></li>
             <li> <a href="https://maps.app.goo.gl/eDwAdWkN6JgrDdsr6"> <span><i class="ri-map-pin-2-fill"></i></span> Bishkek, Kyrgyzstan </a></li>
           </ul>
         </div>
@@ -802,7 +819,6 @@
     </p>
 
 <form action="https://api.web3forms.com/submit" method="POST">
-
     <input type="hidden" name="access_key" value="f8e3c043-ac54-455c-b211-803163643f01">
     <input type="hidden" name="tour_name" value="">
 
@@ -898,12 +914,12 @@
   <span class="viewer-close" id="viewerClose">✕</span>
   <img id="viewerImage">
 </div>
-  <!-- JS (page is inside /tours) -->
 <script>
 const viewer = document.getElementById("imageViewer");
 const viewerImg = document.getElementById("viewerImage");
 const viewerClose = document.getElementById("viewerClose");
 
+// Обычные изображения (без галереи и фонов карточек)
 document.querySelectorAll("img:not(.no-zoom):not(.no-zoom-container img):not(#carouselTrack img):not(.gallery-img):not(.journey-card-bg)").forEach(img => {
   img.addEventListener("click", () => {
     viewerImg.src = img.src;
@@ -911,9 +927,17 @@ document.querySelectorAll("img:not(.no-zoom):not(.no-zoom-container img):not(#ca
   });
 });
 
+// Галерейные изображения внутри карточек
+document.querySelectorAll(".gallery-img").forEach(img => {
+  img.addEventListener("click", () => {
+    viewerImg.src = img.src;
+    viewer.classList.add("active");
+  });
+});
+
 viewerClose.onclick = () => viewer.classList.remove("active");
-viewer.onclick = (e) => { if(e.target === viewer) viewer.classList.remove("active"); };
-document.addEventListener("keydown", (e) => { if(e.key === "Escape") viewer.classList.remove("active"); });
+viewer.onclick = (e) => { if (e.target === viewer) viewer.classList.remove("active"); };
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") viewer.classList.remove("active"); });
 </script>
     <script src="./js/tour-card.js"></script>
     <script src="./js/searchBar.js"></script>

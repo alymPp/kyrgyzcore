@@ -213,81 +213,97 @@
 <body>
 
 <!-- Top Banner -->
-  <div class="top-banner">
-    <div class="top-banner__container">
-      <div class="top-banner__contacts">
-        <a href="tel:+996500969212" class="top-banner__item">
-          <i class="ri-phone-fill"></i>+996 500 969 212
+<div class="top-banner">
+  <div class="top-banner__container">
+
+    <div class="top-banner__contacts">
+      <a href="tel:+996500969212" class="top-banner__item">
+        <i class="ri-phone-fill"></i>+996 500 969 212
+      </a>
+      <a href="mailto:info@kyrgyzcore.com" class="top-banner__item">
+        <i class="ri-mail-line"></i>info@kyrgyzcore.com
+      </a>
+      <a href="https://maps.app.goo.gl/eDwAdWkN6JgrDdsr6" target="_blank" class="top-banner__item">
+        <i class="ri-map-pin-2-fill"></i>45/1 Aaly Tokombaev St, Bishkek
+      </a>
+    </div>
+
+    <div class="top-banner__right">
+
+      <div class="top-banner__socials">
+        <a href="https://www.instagram.com/alymsvibe/" target="_blank" class="top-banner__social">
+          <i class="ri-instagram-line"></i>
         </a>
-        <a href="mailto:kyrgyzcore@gmail.com" class="top-banner__item">
-          <i class="ri-mail-line"></i>kyrgyzcore@gmail.com
-        </a>
-        <a href="https://maps.app.goo.gl/eDwAdWkN6JgrDdsr6" target="_blank" class="top-banner__item">
-          <i class="ri-map-pin-2-fill"></i>45/1 Aaly Tokombaev St, Bishkek
+        <a href="https://wa.me/996500969212/" target="_blank" class="top-banner__social">
+          <i class="ri-whatsapp-line"></i>
         </a>
       </div>
-      <div class="top-banner__right">
-        <a href="https://www.instagram.com/alymsvibe/" target="_blank" class="top-banner__social"><i class="ri-instagram-line"></i></a>
-        <a href="https://wa.me/996500969212/" target="_blank" class="top-banner__social"><i class="ri-whatsapp-line"></i></a>
-        <a href="../request.html" class="top-banner__cta">
-          <i class="ri-edit-line"></i>REQUEST CUSTOM TOUR
-        </a>
+
+      <!-- Language switch -->
+      <div class="top-banner__languages">
+        <a href="./6-days-tour-in-kyrgyzstan.html" class="lang-btn active" data-lang="en">🇬🇧 EN</a>
+        <a href="../ko/tours/6-days-tour-kyrgyzstan.html" class="lang-btn" data-lang="ko">🇰🇷 KO</a>
+        <a class="lang-btn" data-lang="de">🇩🇪 DE</a>
       </div>
+
+      <a href="./tours.html" class="top-banner__cta">
+        <i class="ri-edit-line"></i>
+        <span>REQUEST CUSTOM TOUR</span>
+      </a>
+
     </div>
   </div>
-  <!-- Nav -->
-  <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
-    <div class="nav__inner">
-      <!-- Logo -->
-      <div class="nav__logo">
-        <a href="https://kyrgyzcore.com/">
-          <img class="logo" src="../assets/logo.png" alt="Kyrgyz Core">
-        </a>
-      </div>
+</div>
 
-      <!-- Links (desktop) -->
+<!-- Nav -->
+<nav itemscope itemtype="https://schema.org/SiteNavigationElement">
+  <div class="nav__inner">
+
+    <div class="nav__logo">
+      <a href="./index.html">
+        <img class="logo no-zoom" src="../../assets/logo.png" alt="Kyrgyz Core">
+      </a>
+    </div>
+
     <ul class="nav__links" id="nav-links">
-      <li><a href="https://kyrgyzcore.com/">Home</a></li>
-      <li><a href="https://kyrgyzcore.com/destination.html">Destinations</a></li>
-      <li><a href="https://kyrgyzcore.com/tours.html">Packages</a></li>
-      <li><a href="https://kyrgyzcore.com/index.html#blog">Blog</a></li>
-      <li><a href="https://kyrgyzcore.com/about.html">About Us</a></li>
-      <li><a href="https://kyrgyzcore.com/tours.html">BOOK TRIP</a></li>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./destination.html">Destinations</a></li>
+      <li><a href="./tours.html">Tours</a></li>
+      <li><a href="./index.html#blog">Blog</a></li>
+      <li><a href="./about.html">About Us</a></li>
+      <li><a href="./tours.html">Book Trip</a></li>
     </ul>
 
-      <!-- Search (desktop) -->
-      <div class="search-wrapper">
-        <div class="search-bar">
-          <input type="text" placeholder="Search destinations..." autocomplete="off">
-          <img src="../assets/Loop.svg" alt="Search">
-          <ul class="suggestions"></ul>
-        </div>
+    <div class="search-wrapper">
+      <div class="search-bar">
+        <input type="text" placeholder="Search destinations..." autocomplete="off">
+        <img class=" no-zoom" src="../../assets/Loop.svg" alt="Search">
+        <ul class="suggestions"></ul>
       </div>
-
-      <!-- Search (mobile) -->
-      <div class="search-wrapper-mbl">
-        <div class="search-bar">
-          <input type="text" placeholder="Search..." autocomplete="off">
-          <img src="../assets/Loop.svg" alt="Search">
-          <ul class="suggestions"></ul>
-        </div>
-      </div>
-
-      <!-- Book button (desktop) -->
-      <div class="nav__btns">
-        <button class="btn" onclick="window.location.href='../request.html'">Book Trip</button>
-      </div>
-
-      <!-- Burger (mobile) -->
-      <div class="nav__menu__btn" id="menu-btn">
-        <i class="ri-menu-3-fill"></i>
-      </div>
-
     </div>
-  </nav>
+
+    <div class="search-wrapper-mbl">
+      <div class="search-bar">
+        <input type="text" placeholder="Search..." autocomplete="off">
+        <img class=" no-zoom" src="../../assets/Loop.svg" alt="Search">
+        <ul class="suggestions"></ul>
+      </div>
+    </div>
+
+    <div class="nav__btns">
+      <button class="btn" onclick="window.location.href='./tours.html'">Book Trip</button>
+    </div>
+
+    <div class="nav__menu__btn" id="menu-btn">
+      <i class="ri-menu-3-fill"></i>
+    </div>
+
+  </div>
+</nav>
+
 
   <!-- Hero -->
-  <section class="hero" style="border-radius: 0px;">
+  <section class=" hero-pic-2 hero " style="border-radius: 0px;">
     <div class="hero-content">
       <h1>6-Day Ultimate Kyrgyzstan Tour</h1>
       <div class="hero-meta">
@@ -304,7 +320,7 @@
           <span>8–10 People</span>
         </div>
       </div>
-      <div class="hero-price">From $1030 per person</div>
+      <div class="hero-price">From $1390 per person</div>
       <a href="#booking" class="book-btn">Book This Tour</a>
     </div>
   </section>
@@ -349,7 +365,7 @@
         <section class="section">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 20px;">
             <h2 class="section-title" style="margin-bottom: 0;">Day by Day Itinerary</h2>
-            <button id="viewToggle" class="btn" style="padding: 12px 24px; font-size: 14px;">
+            <button id="viewToggle" class="show-btn" style="padding: 12px 24px; font-size: 14px;">
               <i class="ri-list-check"></i> Show Full Itinerary
             </button>
           </div>
@@ -425,7 +441,6 @@
               Many nationalities enter visa-free, but rules depend on your passport. Check current requirements before booking.
             </div>
           </div>
-
           <div class="faq-item">
             <div class="faq-question">
               <span>What fitness level is required?</span>
@@ -471,16 +486,16 @@
       <div class="price-row">
         <div class="price-type">Shared Room (Double / Twin)</div>
         <div class="price-info">
-          <span class="old-price">$1260</span>
-          <span class="new-price">$1030</span>
+          <span class="old-price">$1490</span>
+          <span class="new-price">$1390</span>
         </div>
       </div>
 
       <div class="price-row">
         <div class="price-type">Single Room</div>
         <div class="price-info">
-          <span class="old-price">$1150</span>
-          <span class="new-price">$1230</span>
+          <span class="old-price">$1590</span>
+          <span class="new-price">$1490</span>
         </div>
       </div>
 
@@ -510,7 +525,7 @@
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
             </svg>
           </span>
-          kyrgyzcore.info@gmail.com
+          kyrgyzcore@gmail.com
         </a>
       </div>
 
@@ -729,7 +744,7 @@ const viewerClose = document.getElementById("viewerClose");
 document.querySelectorAll("img").forEach(img => {
 
   img.addEventListener("click", () => {
-
+а
     viewerImg.src = img.src;
     viewer.classList.add("active");
 
@@ -744,10 +759,10 @@ viewer.onclick = (e) => {
 };
 
 document.addEventListener("keydown",(e)=>{
-  if(e.key === "Escape") viewer.classList.remove("active");
+  if(e.key === "Escape") viewer.classList.remove("a]ctive");
 });
 </script>
-  <script src="https://kyrgyzcore.com/js/tour-info.js"></script>  
+  <script src="../js/tour-info.js"></script>  
   <script src="../js/searchBar.js"></script>
   <script src="../js/main.js"></script>
 </body>

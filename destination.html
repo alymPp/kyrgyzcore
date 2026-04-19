@@ -39,27 +39,45 @@
 </head>
 
 <body>
-<!-- Top Banner -->
-<!-- Top Banner -->
+<!-- Top Banner --><!-- Top Banner -->
 <div class="top-banner">
   <div class="top-banner__container">
+
     <div class="top-banner__contacts">
       <a href="tel:+996500969212" class="top-banner__item">
         <i class="ri-phone-fill"></i>+996 500 969 212
       </a>
-      <a href="mailto:kyrgyzcore@gmail.com" class="top-banner__item">
-        <i class="ri-mail-line"></i>kyrgyzcore@gmail.com
+      <a href="mailto:info@kyrgyzcore.com" class="top-banner__item">
+        <i class="ri-mail-line"></i>info@kyrgyzcore.com
       </a>
       <a href="https://maps.app.goo.gl/eDwAdWkN6JgrDdsr6" target="_blank" class="top-banner__item">
         <i class="ri-map-pin-2-fill"></i>45/1 Aaly Tokombaev St, Bishkek
       </a>
     </div>
+
     <div class="top-banner__right">
-      <a href="https://www.instagram.com/alymsvibe/" target="_blank" class="top-banner__social"><i class="ri-instagram-line"></i></a>
-      <a href="https://wa.me/996500969212/" target="_blank" class="top-banner__social"><i class="ri-whatsapp-line"></i></a>
+
+      <div class="top-banner__socials">
+        <a href="https://www.instagram.com/alymsvibe/" target="_blank" class="top-banner__social">
+          <i class="ri-instagram-line"></i>
+        </a>
+        <a href="https://wa.me/996500969212/" target="_blank" class="top-banner__social">
+          <i class="ri-whatsapp-line"></i>
+        </a>
+      </div>
+
+      <!-- Language switch -->
+      <div class="top-banner__languages">
+        <a href="./destination.html" class="lang-btn active" data-lang="en">🇬🇧 EN</a>
+        <a href="./ko/destination.html" class="lang-btn" data-lang="ko">🇰🇷 KO</a>
+        <a class="lang-btn" data-lang="de">🇩🇪 DE</a>
+      </div>
+
       <a href="./tours.html" class="top-banner__cta">
-        <i class="ri-edit-line"></i>REQUEST CUSTOM TOUR
+        <i class="ri-edit-line"></i>
+        <span>REQUEST CUSTOM TOUR</span>
       </a>
+
     </div>
   </div>
 </div>
@@ -67,52 +85,49 @@
 <!-- Nav -->
 <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
   <div class="nav__inner">
-    <!-- Logo -->
+
     <div class="nav__logo">
-      <a href="https://kyrgyzcore.com/">
-        <img class="logo" src="./assets/logo.png" alt="Kyrgyz Core">
+      <a href="./index.html">
+        <img class="logo no-zoom" src="./assets/logo.png" alt="Kyrgyz Core">
       </a>
     </div>
-    <!-- Links (desktop) -->
+
     <ul class="nav__links" id="nav-links">
-      <li><a href="https://kyrgyzcore.com/">Home</a></li>
-      <li><a href="https://kyrgyzcore.com/destination.html">Destinations</a></li>
-      <li><a href="https://kyrgyzcore.com/tours.html">Packages</a></li>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./destination.html">Destinations</a></li>
+      <li><a href="./tours.html">Tours</a></li>
       <li><a href="./index.html#blog">Blog</a></li>
-      <li><a href="https://kyrgyzcore.com/about.html">About Us</a></li>
-      <li><a href="./tours.html">BOOK TRIP</a></li>
+      <li><a href="./about.html">About Us</a></li>
+      <li><a href="./tours.html">Book Trip</a></li>
     </ul>
 
-    <!-- Search (desktop) -->
     <div class="search-wrapper">
       <div class="search-bar">
         <input type="text" placeholder="Search destinations..." autocomplete="off">
-        <img src="./assets/Loop.svg" alt="Search">
+        <img class=" no-zoom" src="./assets/Loop.svg" alt="Search">
         <ul class="suggestions"></ul>
       </div>
     </div>
 
-    <!-- Search (mobile) -->
     <div class="search-wrapper-mbl">
       <div class="search-bar">
         <input type="text" placeholder="Search..." autocomplete="off">
-        <img src="./assets/Loop.svg" alt="Search">
+        <img class=" no-zoom" src="./assets/Loop.svg" alt="Search">
         <ul class="suggestions"></ul>
       </div>
     </div>
 
-    <!-- Book button (desktop) -->
     <div class="nav__btns">
-      <button class="btn" onclick="window.location.href='../tours.html'">Book Trip</button>
+      <button class="btn" onclick="window.location.href='./tours.html'">Book Trip</button>
     </div>
 
-    <!-- Burger (mobile) -->
     <div class="nav__menu__btn" id="menu-btn">
       <i class="ri-menu-3-fill"></i>
     </div>
 
   </div>
 </nav>
+
 
 <section class="hero" style="border-radius: 0px;">
     <div class="hero-content">

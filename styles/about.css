@@ -245,7 +245,7 @@
 
         @media (max-width: 768px){
       .hero{ height: 180px; 
-             margin-top: 70px;}
+             }
       .hero h1{ font-size: 36px; }
       .row{ grid-template-columns: 1fr; }
       .img-top{ height: 320px; }
@@ -599,7 +599,7 @@
 
 .principle__text strong{
   display: flex;
-  text-align: center;
+  text-align: start;
   font-weight: 800;
 }
 
